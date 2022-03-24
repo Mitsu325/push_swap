@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/25 00:01:21 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/03/25 00:10:31 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRC_FILE	=	main.c
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
+
+HEADER		=	-I includes
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g
