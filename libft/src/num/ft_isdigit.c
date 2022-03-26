@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/03/26 01:44:18 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/03/26 01:26:37 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	printf("%s", argv[1]);
-	int num = ft_isdigit(8 + '0');
-	printf("%d", num);
-	return (EXIT_SUCCESS);
+	return (c >= '0' && c <= '9');
 }

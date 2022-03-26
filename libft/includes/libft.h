@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/03/26 01:44:18 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/03/26 01:28:13 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	main(int argc, char **argv)
-{
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	printf("%s", argv[1]);
-	int num = ft_isdigit(8 + '0');
-	printf("%d", num);
-	return (EXIT_SUCCESS);
-}
+int	ft_isdigit(int c);
+
+#endif

@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/25 00:10:31 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/03/26 01:33:26 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
 
 HEADER		=	-I includes
+LIBFT_DIR	=	libft/
+LIBFT		=	$(LIBFT_DIR)libft.a
+LIB_FLAGS	=	-L $(LIBFT_DIR) -lft -L /usr/local/lib
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g
@@ -35,14 +38,19 @@ all:			$(NAME)
 				@echo "------------ MAKE PUSH SWAP ------------"
 				@echo "----------------------------------------\n\e[0m"
 
-$(NAME):		$(OBJS)
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(LIBFT):
+				@make --no-print-directory -C $(LIBFT_DIR)
+
+$(NAME):		$(OBJS) $(LIBFT)
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
 
 clean:
+				@make clean --no-print-directory -C $(LIBFT_DIR)
 				@$(RM) $(OBJS)
 				@$(RM) $(OBJ)
 
 fclean:			clean
+				@make fclean --no-print-directory -C $(LIBFT_DIR)
 				@$(RM) $(NAME)
 				@echo "\n\e[95m----------------------------------------"
 				@echo "------------- CLEANING DONE ------------"
