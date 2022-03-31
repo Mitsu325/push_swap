@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/26 01:30:31 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/03/31 02:29:44 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC			=	src
 OBJ			=	obj
 SUB_DIR		=	num
 
-NUM_F		=	ft_isdigit.c
+NUM_F		=	ft_atoi.c ft_isdigit.c
 
 FILES		=	$(foreach file, $(NUM_F), $(SRC)/num/$(file))
 
