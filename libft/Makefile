@@ -6,18 +6,21 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/31 02:29:44 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/03/31 03:32:27 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 SRC			=	src
 OBJ			=	obj
-SUB_DIR		=	num
+SUB_DIR		=	num str
 
 NUM_F		=	ft_atoi.c ft_isdigit.c
+STR_F		=	ft_split.c ft_strchr.c ft_strcpy.c ft_strdup.c ft_strlen.c \
+				ft_substr.c
 
 FILES		=	$(foreach file, $(NUM_F), $(SRC)/num/$(file))
+FILES		+= $(foreach file, $(STR_F), $(SRC)/str/$(file))
 
 OBJ_DIR		= 	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
