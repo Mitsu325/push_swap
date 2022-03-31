@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:21:00 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/03/31 02:57:44 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/03/31 03:34:50 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_white_space(int c, int is_first_sign)
 
 int	calculate_num(const char *str, int sign)
 {
-	int num;
+	int	num;
 
 	num = 0;
 	while (ft_isdigit(*str))
