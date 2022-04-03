@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/26 01:33:26 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/03 09:54:38 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,20 +29,25 @@ CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g
 RM			=	rm -rf
 
-$(OBJ)/%.o:		$(SRC)/%.c
-				@mkdir -p $(OBJ)
-				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
-
 all:			$(NAME)
 				@echo "\n\e[96m----------------------------------------"
 				@echo "------------ MAKE PUSH SWAP ------------"
 				@echo "----------------------------------------\n\e[0m"
 
-$(LIBFT):
-				@make --no-print-directory -C $(LIBFT_DIR)
+release:		CC=clang
+release:		CFLAGS=-Wall -O2 -DNDEBUG
+release:		fclean
+release:		$(NAME)
 
 $(NAME):		$(OBJS) $(LIBFT)
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
+
+$(OBJ)/%.o:		$(SRC)/%.c
+				@mkdir -p $(OBJ)
+				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+$(LIBFT):
+				@make --no-print-directory -C $(LIBFT_DIR)
 
 clean:
 				@make clean --no-print-directory -C $(LIBFT_DIR)
