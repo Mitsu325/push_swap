@@ -6,9 +6,14 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/03 09:54:38 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/03 15:43:28 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+DEFAULT		=	\e[39m
+GREEN		=	\e[92m
+MAGENTA		=	\e[95m
+CYAN		=	\e[96m
 
 NAME		=	push_swap
 SRC			=	src
@@ -30,16 +35,15 @@ CFLAGS		=	-Wall -Wextra -Werror -g
 RM			=	rm -rf
 
 all:			$(NAME)
-				@echo "\n\e[96m----------------------------------------"
-				@echo "------------ MAKE PUSH SWAP ------------"
-				@echo "----------------------------------------\n\e[0m"
 
-release:		CC=clang
-release:		CFLAGS=-Wall -O2 -DNDEBUG
+release:		CFLAGS+=-fsanitize=address
 release:		fclean
 release:		$(NAME)
 
 $(NAME):		$(OBJS) $(LIBFT)
+				@echo "\n$(CYAN)----------------------------------------"
+				@echo "------------ MAKE PUSH SWAP ------------"
+				@echo "----------------------------------------\n$(DEFAULT)"
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
 
 $(OBJ)/%.o:		$(SRC)/%.c
@@ -57,9 +61,9 @@ clean:
 fclean:			clean
 				@make fclean --no-print-directory -C $(LIBFT_DIR)
 				@$(RM) $(NAME)
-				@echo "\n\e[95m----------------------------------------"
+				@echo "\n$(MAGENTA)----------------------------------------"
 				@echo "------------- CLEANING DONE ------------"
-				@echo "----------------------------------------\n\e[0m"
+				@echo "----------------------------------------\n$(DEFAULT)"
 
 re:				fclean all
 
