@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/03/31 03:32:27 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/03 18:57:27 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,34 @@ FILES		=	$(foreach file, $(NUM_F), $(SRC)/num/$(file))
 FILES		+= $(foreach file, $(STR_F), $(SRC)/str/$(file))
 
 OBJ_DIR		= 	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
-OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
+OBJS		=	$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(FILES))
 
 INCLUDES	=	-I includes
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
-RM			=	/bin/rm -f
+RM			=	/bin/rm -rf
+
+# =============== TEST ===============
+
+TEST		=	tests
+TESTS		=	$(wildcard $(TEST)/*.c)
+TESTBINS	=	$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
+
+$(TEST)/bin/%:	$(TEST)/%.c
+				@$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lcriterion
+
+$(TEST)/bin:
+				@mkdir $@
+
+test:			test_clean $(NAME) $(TEST)/bin $(TESTBINS)
+				for test in $(TESTBINS) ; do ./$$test ; done
+
+test_clean:		fclean
+				@$(RM) $(TESTBINS)
+				@$(RM) $(TEST)/bin
+
+# ====================================
 
 $(OBJ)/%.o	:	$(SRC)/%.c
 				@mkdir -p $(OBJ) $(OBJ_DIR)
