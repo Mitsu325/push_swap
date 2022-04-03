@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/03 15:43:28 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/03 15:57:47 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,16 @@ release:		CFLAGS+=-fsanitize=address
 release:		fclean
 release:		$(NAME)
 
+val:			fclean
+val:			$(NAME)
+val:
+				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(num)
+
+full-val:			fclean
+full-val:			$(NAME)
+full-val:
+				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(num)
+
 $(NAME):		$(OBJS) $(LIBFT)
 				@echo "\n$(CYAN)----------------------------------------"
 				@echo "------------ MAKE PUSH SWAP ------------"
@@ -61,6 +71,7 @@ clean:
 fclean:			clean
 				@make fclean --no-print-directory -C $(LIBFT_DIR)
 				@$(RM) $(NAME)
+				@$(RM) valgrind-out.txt
 				@echo "\n$(MAGENTA)----------------------------------------"
 				@echo "------------- CLEANING DONE ------------"
 				@echo "----------------------------------------\n$(DEFAULT)"
