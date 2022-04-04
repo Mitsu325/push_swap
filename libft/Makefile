@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/04 05:06:56 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/04 05:17:55 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@ $(TEST)/bin/%:	$(TEST)/%.c
 				@$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lcriterion
 
 test:			test_clean $(NAME) $(TESTBINS)
-				for test in $(TESTBINS) ; do ./$$test ; done
+				@for test in $(TESTBINS) ; do ./$$test ; done
 
 test_v:			test_clean $(NAME) $(TESTBINS)
-				for test in $(TESTBINS) ; do ./$$test --verbose ; done
+				@for test in $(TESTBINS) ; do ./$$test --verbose ; done
 
 test_clean:		fclean
 				@$(RM) $(TESTBINS)
