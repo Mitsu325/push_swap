@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/03 18:57:27 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/04 05:06:56 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,17 +34,21 @@ RM			=	/bin/rm -rf
 # =============== TEST ===============
 
 TEST		=	tests
+TEST_DIR	=	num
 TESTS		=	$(wildcard $(TEST)/*.c)
+TESTS		+=	$(wildcard $(TEST)/num/*.c)
+TESTBIN_DIR	=	$(foreach dir, $(TEST_DIR), $(addprefix $(TEST)/bin/, $(dir)))
 TESTBINS	=	$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
 
 $(TEST)/bin/%:	$(TEST)/%.c
+				@mkdir -p $(TEST)/bin/ $(TESTBIN_DIR)
 				@$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lcriterion
 
-$(TEST)/bin:
-				@mkdir $@
-
-test:			test_clean $(NAME) $(TEST)/bin $(TESTBINS)
+test:			test_clean $(NAME) $(TESTBINS)
 				for test in $(TESTBINS) ; do ./$$test ; done
+
+test_v:			test_clean $(NAME) $(TESTBINS)
+				for test in $(TESTBINS) ; do ./$$test --verbose ; done
 
 test_clean:		fclean
 				@$(RM) $(TESTBINS)
@@ -52,15 +56,15 @@ test_clean:		fclean
 
 # ====================================
 
-$(OBJ)/%.o	:	$(SRC)/%.c
-				@mkdir -p $(OBJ) $(OBJ_DIR)
-				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				@ar -rcs $(NAME) $(OBJS)
 				@ranlib $(NAME)
+
+$(OBJ)/%.o	:	$(SRC)/%.c
+				@mkdir -p $(OBJ) $(OBJ_DIR)
+				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 				@$(RM) $(OBJS)
