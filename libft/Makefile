@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/04 05:17:55 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/04 05:49:55 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,10 @@ RM			=	/bin/rm -rf
 # =============== TEST ===============
 
 TEST		=	tests
-TEST_DIR	=	num
+TEST_DIR	=	num str
 TESTS		=	$(wildcard $(TEST)/*.c)
 TESTS		+=	$(wildcard $(TEST)/num/*.c)
+TESTS		+=	$(wildcard $(TEST)/str/*.c)
 TESTBIN_DIR	=	$(foreach dir, $(TEST_DIR), $(addprefix $(TEST)/bin/, $(dir)))
 TESTBINS	=	$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
 
