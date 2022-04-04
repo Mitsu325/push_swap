@@ -17,7 +17,7 @@ Test(strcpy, str_zero) {
 	const char	*expect = "\0";
 	const char	*str = "Hey MarVin!";
 	int	size_copy = 0;
-	char	dst[size_copy];
+	char	dst[size_copy + 1];
 
 	ft_strcpy(dst, str, size_copy);
 
