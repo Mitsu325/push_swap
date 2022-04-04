@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/04 05:49:55 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/04 06:10:13 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,13 @@ $(TEST)/bin/%:	$(TEST)/%.c
 				@mkdir -p $(TEST)/bin/ $(TESTBIN_DIR)
 				@$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lcriterion
 
-test:			test_clean $(NAME) $(TESTBINS)
+test:			tclean $(NAME) $(TESTBINS)
 				@for test in $(TESTBINS) ; do ./$$test ; done
 
-test_v:			test_clean $(NAME) $(TESTBINS)
+test_v:			tclean $(NAME) $(TESTBINS)
 				@for test in $(TESTBINS) ; do ./$$test --verbose ; done
 
-test_clean:		fclean
+tclean:		fclean
 				@$(RM) $(TESTBINS)
 				@$(RM) $(TEST)/bin
 
