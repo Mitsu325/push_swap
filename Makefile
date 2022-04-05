@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/05 23:02:27 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/05 23:11:03 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
 
-HEADER		=	-I includes
+HEADER		=	-I includes -I $(LIBFT_DIR)/includes
 LIBFT_DIR	=	libft
 LIBFT		=	$(LIBFT_DIR)/libft.a
 LIB_FLAGS	=	-L $(LIBFT_DIR)
