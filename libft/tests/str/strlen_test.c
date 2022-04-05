@@ -1,18 +1,20 @@
 #include <criterion/criterion.h>
 #include "../../includes/libft.h"
 
-Test(strlen, len) {
-	const char	*str = "Hey!";
-	int	length = ft_strlen(str);
-	int	expect = strlen(str);
+char	*str = NULL;
+int		result = 0;
+int		expect = 0;
 
-	cr_expect(length == expect, "Ensure return string size");
+Test(strlen, len) {
+	str = "Hey!";
+	result = ft_strlen(str);
+	expect = strlen(str);
+	cr_expect_eq(result, expect, "Ensure return string size");
 }
 
 Test(strlen, empty_str) {
-	const char	*str = "\0";
-	int	length = ft_strlen(str);
-	int	expect = strlen(str);
-
-	cr_expect(length == expect, "Ensure return if string is empty");
+	str = "\0";
+	result = ft_strlen(str);
+	expect = strlen(str);
+	cr_expect_eq(result, expect, "Ensure return if string is empty");
 }

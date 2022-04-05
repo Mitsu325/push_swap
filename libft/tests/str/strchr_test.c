@@ -1,27 +1,35 @@
 #include <criterion/criterion.h>
 #include "../../includes/libft.h"
 
-Test(strchr, str_point) {
-	const char	*str = "tester@mail.com";
-	int	c = '@';
-	char	*str_point = ft_strchr(str, c);
-	char	*expect = strchr(str, c);
+char	*str = NULL;
+int		char_search = 0;
+char	*str_point = NULL;
+char	*expect = NULL;
 
-	cr_expect(strcmp(str_point, expect) == 0, "Ensure return string from the next char found");
+void	suitesetup(void)
+{
+	str = "tester@mail.com";
+	return ;
+}
+
+TestSuite(strchr, .init=suitesetup);
+
+Test(strchr, str_point) {
+	char_search = '@';
+	str_point = ft_strchr(str, char_search);
+	expect = strchr(str, char_search);
+	cr_expect_str_eq(str_point, expect, "Ensure return string from the next char found");
 }
 
 Test(strchr, char_not_found) {
-	const char	*str = "tester@mail.com";
-	int	c = '#';
-	char	*str_point = ft_strchr(str, c);
-
-	cr_expect(str_point == NULL, "Ensure return NULL if the char is not found");
+	char_search = '#';
+	str_point = ft_strchr(str, char_search);
+	cr_expect_null(str_point, "Ensure return NULL if the char is not found");
 }
 
 Test(strchr, str_empty) {
-	const char	*str = "\0";
-	int	c = '#';
-	char	*str_point = ft_strchr(str, c);
-
-	cr_expect(str_point == NULL, "Ensure return NULL if string is empty");
+	str = "\0";
+	char_search = '#';
+	str_point = ft_strchr(str, char_search);
+	cr_expect_null(str_point, "Ensure return NULL if string is empty");
 }
