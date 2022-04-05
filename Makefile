@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/03 15:57:47 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/05 11:05:32 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ full-val:			fclean
 full-val:			$(NAME)
 full-val:
 				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(num)
+
+normi:
+				@norminette libft/src src
 
 $(NAME):		$(OBJS) $(LIBFT)
 				@echo "\n$(CYAN)----------------------------------------"
