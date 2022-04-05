@@ -6,13 +6,23 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/05 11:05:50 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/05 23:23:16 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
+
+int	check_list_integer(char **numbers)
+{
+	// while (*numbers)
+	// {
+	// 	if (!ft_isdigit('0'))
+	// 		return (EXIT_FAILURE);
+	// 	numbers++;
+	// }
+	int num = ft_atoi(*numbers);
+	return (num);
+}
 
 int	main(int argc, char **argv)
 {
