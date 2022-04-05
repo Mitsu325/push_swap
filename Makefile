@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/05 23:25:44 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/06 00:22:04 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS		= $(subst $(SRC), $(OBJ), $(FILES:.c=.o))
 HEADER		= -I includes -I $(LIBFT_DIR)/includes
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
-LIB_FLAGS	= -L $(LIBFT_DIR)/
+LIB_FLAGS	= -L $(LIBFT_DIR)/ -lft
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
@@ -37,14 +37,14 @@ RM			= rm -rf
 all:		$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJS)
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
-			# @echo "\n$(CYAN)----------------------------------------"
-			# @echo "------------ MAKE PUSH SWAP ------------"
-			# @echo "----------------------------------------\n$(DEFAULT)"
+			@echo "\n$(CYAN)----------------------------------------"
+			@echo "------------ MAKE PUSH SWAP ------------"
+			@echo "----------------------------------------\n$(DEFAULT)"
+			@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
 
 $(OBJ)/%.o:	$(SRC)/%.c
 			@mkdir -p $(OBJ)
-			$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+			@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 $(LIBFT):
 			@make --no-print-directory -C $(LIBFT_DIR)
