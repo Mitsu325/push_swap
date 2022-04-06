@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 08:22:15 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:49:03 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isnumber(char *number)
 {
 	while (*number)
 	{
-		if (!ft_isdigit(*number))
+		if (!ft_isdigit(*number) && !is_white_space(*number))
 			return (EXIT_FAILURE);
 		number++;
 	}
