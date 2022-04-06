@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 06:19:59 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/04/06 05:26:14 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/04/06 05:26:20 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "test.h"
 
-int	check_list_integer(char **numbers)
+int	push_swap_test(void)
 {
-	while (*numbers)
-	{
-		if (!ft_isdigit('0'))
-			return (EXIT_FAILURE);
-		numbers++;
-	}
-	return (EXIT_SUCCESS);
-}
-
-int	main(int argc, char **argv)
-{
-	push_swap_test();
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	printf("%s\n", argv[1]);
+	check_is_integer();
 	return (EXIT_SUCCESS);
 }

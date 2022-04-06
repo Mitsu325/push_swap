@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_list_integer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 06:19:59 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/04/06 05:24:36 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "test.h"
 
-int	check_list_integer(char **numbers)
+int	check_is_integer(void)
 {
-	while (*numbers)
-	{
-		if (!ft_isdigit('0'))
-			return (EXIT_FAILURE);
-		numbers++;
-	}
-	return (EXIT_SUCCESS);
-}
+	char	*list[3];
+	int		result;
 
-int	main(int argc, char **argv)
-{
-	push_swap_test();
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	printf("%s\n", argv[1]);
-	return (EXIT_SUCCESS);
+	list[0] = "1";
+	list[1] = "2";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_SUCCESS)
+	{
+		printf("[check_list_integer_test.c, check_is_integer]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_is_integer]");
+	printf("- Ensure returns 0 if list is integer\n");
+	return (EXIT_FAILURE);
 }

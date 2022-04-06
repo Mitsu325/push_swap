@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/06 04:47:08 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/06 06:20:55 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,14 @@ CYAN		=	\e[96m
 NAME		=	push_swap
 SRC			=	src
 OBJ			=	obj
+SUB_DIR		=	tests
 
 SRC_FILE	=	main.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
+FILES		+=	$(wildcard $(SRC)/tests/*.c)
 
+OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
 
 HEADER		=	-I includes -I $(LIBFT_DIR)/includes
@@ -37,15 +40,17 @@ RM			=	rm -rf
 
 all:			$(NAME)
 
-$(NAME):		$(LIBFT) $(OBJS)
+$(NAME):		make_obj $(LIBFT) $(OBJS)
 				@echo "\n$(CYAN)----------------------------------------"
 				@echo "------------ MAKE PUSH SWAP ------------"
 				@echo "----------------------------------------\n$(DEFAULT)"
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
 
 $(OBJ)/%.o:		$(SRC)/%.c
-				@mkdir -p $(OBJ)
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+make_obj:
+				@mkdir -p $(OBJ) $(OBJ_DIR)
 
 $(LIBFT):
 				@make --no-print-directory -C $(LIBFT_DIR)
