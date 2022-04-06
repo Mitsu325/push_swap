@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/03/31 03:31:56 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:43:47 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
+int		is_white_space(int c);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
