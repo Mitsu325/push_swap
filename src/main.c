@@ -6,20 +6,34 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 06:32:18 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:22:15 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "test.h"
 
+int	ft_isnumber(char *number)
+{
+	while (*number)
+	{
+		if (!ft_isdigit(*number))
+			return (EXIT_FAILURE);
+		number++;
+	}
+	return (EXIT_SUCCESS);
+}
+
 int	check_list_integer(char **numbers)
 {
-	while (*numbers && **numbers)
+	unsigned int	i;
+
+	i = 0;
+	while (*(numbers + i) && **(numbers + i))
 	{
-		if (!ft_isdigit(**numbers))
+		if (ft_isnumber(*(numbers + i)))
 			return (EXIT_FAILURE);
-		numbers++;
+		i++;
 	}
 	return (EXIT_SUCCESS);
 }
