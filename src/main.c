@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 06:19:59 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 06:32:18 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	check_list_integer(char **numbers)
 {
-	while (*numbers)
+	while (*numbers && **numbers)
 	{
-		if (!ft_isdigit('0'))
+		if (!ft_isdigit(**numbers))
 			return (EXIT_FAILURE);
 		numbers++;
 	}
@@ -26,7 +26,8 @@ int	check_list_integer(char **numbers)
 
 int	main(int argc, char **argv)
 {
-	push_swap_test();
+	if (push_swap_test())
+		return (EXIT_FAILURE);
 	if (argc < 2)
 		return (EXIT_FAILURE);
 	printf("%s\n", argv[1]);
