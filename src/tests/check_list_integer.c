@@ -6,13 +6,13 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 07:11:36 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:20:29 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int	check_is_digit(void)
+int	check_isdigit(void)
 {
 	char	*list[3];
 	int		result;
@@ -23,11 +23,91 @@ int	check_is_digit(void)
 	result = check_list_integer(list);
 	if (result == EXIT_SUCCESS)
 	{
-		printf("[check_list_integer_test.c, check_is_digit]");
+		printf("[check_list_integer_test.c, check_isdigit]");
 		printf("- OK\n");
 		return (EXIT_SUCCESS);
 	}
-	printf("[check_list_integer_test.c, check_is_digit]");
+	printf("[check_list_integer_test.c, check_isdigit]");
 	printf("- Ensure returns 0 if list is integer\n");
 	return (EXIT_FAILURE);
 }
+
+int	check_is_not_digit(void)
+{
+	char	*list[3];
+	int		result;
+
+	list[0] = "0";
+	list[1] = "A";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_FAILURE)
+	{
+		printf("[check_list_integer_test.c, check_is_not_digit]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_is_not_digit]");
+	printf("- Ensure returns 1 if list containst other non-digit char\n");
+	return (EXIT_FAILURE);
+}
+
+int	check_isnumber(void)
+{
+	char	*list[3];
+	int		result;
+
+	list[0] = "10";
+	list[1] = "202";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_SUCCESS)
+	{
+		printf("[check_list_integer_test.c, check_isnumber]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_isnumber]");
+	printf("- Ensure returns 0 if is number\n");
+	return (EXIT_FAILURE);
+}
+
+int	check_is_not_number(void)
+{
+	char	*list[3];
+	int		result;
+
+	list[0] = "10";
+	list[1] = "Hey";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_FAILURE)
+	{
+		printf("[check_list_integer_test.c, check_is_not_number]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_is_not_number]");
+	printf("- Ensure returns 1 if if list containst other non-number char\n");
+	return (EXIT_FAILURE);
+}
+
+// int	check_num_string(void)
+// {
+// 	char	*list[3];
+// 	int		result;
+
+// 	list[0] = "0  1";
+// 	list[1] = "2  7";
+// 	list[2] = "\0";
+// 	result = check_num_string(list);
+// 	if (result == EXIT_SUCCESS)
+// 	{
+// 		printf("[check_list_integer_test.c, check_is_digit]");
+// 		printf("- OK\n");
+// 		return (EXIT_SUCCESS);
+// 	}
+// 	printf("[check_list_integer_test.c, check_is_digit]");
+// 	printf("- Ensure returns 0 if list is integer\n");
+// 	return (EXIT_FAILURE);
+// }
