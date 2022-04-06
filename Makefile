@@ -6,12 +6,13 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/05 11:05:32 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/06 04:47:08 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 DEFAULT		=	\e[39m
 GREEN		=	\e[92m
+YELLOW		=	\e[93m
 MAGENTA		=	\e[95m
 CYAN		=	\e[96m
 
@@ -25,35 +26,18 @@ FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
 
-HEADER		=	-I includes
-LIBFT_DIR	=	libft/
-LIBFT		=	$(LIBFT_DIR)libft.a
-LIB_FLAGS	=	-L $(LIBFT_DIR) -lft -L /usr/local/lib
+HEADER		=	-I includes -I $(LIBFT_DIR)/includes
+LIBFT_DIR	=	libft
+LIBFT		=	$(LIBFT_DIR)/libft.a
+LIB_FLAGS	=	-L $(LIBFT_DIR) -lft
 
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 
 all:			$(NAME)
 
-release:		CFLAGS+=-fsanitize=address
-release:		fclean
-release:		$(NAME)
-
-val:			fclean
-val:			$(NAME)
-val:
-				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(num)
-
-full-val:			fclean
-full-val:			$(NAME)
-full-val:
-				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(num)
-
-normi:
-				@norminette libft/src src
-
-$(NAME):		$(OBJS) $(LIBFT)
+$(NAME):		$(LIBFT) $(OBJS)
 				@echo "\n$(CYAN)----------------------------------------"
 				@echo "------------ MAKE PUSH SWAP ------------"
 				@echo "----------------------------------------\n$(DEFAULT)"
@@ -81,4 +65,26 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+# ============ CHECK NORMI AND MEMORY LEAK ============
+
+release:		CFLAGS+=-g -fsanitize=address
+release:		fclean
+release:		$(NAME)
+
+val:			fclean
+val:			$(NAME)
+val:
+				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(num)
+
+full-val:		fclean
+full-val:		$(NAME)
+full-val:
+				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(num)
+
+normi:
+				@echo "\n$(YELLOW)----------------------------------------"
+				@echo "-------------- NORMINETTE -------------"
+				@echo "----------------------------------------\n$(DEFAULT)"
+				@norminette libft/src src
+
+.PHONY:			all clean fclean re release val full-val normi
