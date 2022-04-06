@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_list_integer.c                               :+:      :+:    :+:   */
+/*   check_list_integer_test.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 15:40:58 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 19:00:00 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
+
+typedef struct s_check_list_int
+{
+	char	*list[3];
+	int		result;
+}		t_check_list_int;
 
 int	check_isdigit(void)
 {
