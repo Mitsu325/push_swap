@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 08:20:29 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:48:48 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,22 +92,42 @@ int	check_is_not_number(void)
 	return (EXIT_FAILURE);
 }
 
-// int	check_num_string(void)
-// {
-// 	char	*list[3];
-// 	int		result;
+int	check_num_with_space(void)
+{
+	char	*list[3];
+	int		result;
 
-// 	list[0] = "0  1";
-// 	list[1] = "2  7";
-// 	list[2] = "\0";
-// 	result = check_num_string(list);
-// 	if (result == EXIT_SUCCESS)
-// 	{
-// 		printf("[check_list_integer_test.c, check_is_digit]");
-// 		printf("- OK\n");
-// 		return (EXIT_SUCCESS);
-// 	}
-// 	printf("[check_list_integer_test.c, check_is_digit]");
-// 	printf("- Ensure returns 0 if list is integer\n");
-// 	return (EXIT_FAILURE);
-// }
+	list[0] = "012  1";
+	list[1] = "2  	70	80";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_SUCCESS)
+	{
+		printf("[check_list_integer_test.c, check_num_with_space]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_num_with_space]");
+	printf("- Ensure returns 0 if number in format string with spaces\n");
+	return (EXIT_FAILURE);
+}
+
+int	check_not_num_with_space(void)
+{
+	char	*list[3];
+	int		result;
+
+	list[0] = "012  1";
+	list[1] = "2P  	70";
+	list[2] = "\0";
+	result = check_list_integer(list);
+	if (result == EXIT_FAILURE)
+	{
+		printf("[check_list_integer_test.c, check_not_num_with_space]");
+		printf("- OK\n");
+		return (EXIT_SUCCESS);
+	}
+	printf("[check_list_integer_test.c, check_not_num_with_space]");
+	printf("- Ensure returns 1 if list containst other non-number char\n");
+	return (EXIT_FAILURE);
+}

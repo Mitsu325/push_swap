@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 08:21:04 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/06 08:47:28 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	check_isdigit(void);
 int	check_is_not_digit(void);
 int	check_isnumber(void);
 int	check_is_not_number(void);
+int	check_num_with_space(void);
+int	check_not_num_with_space(void);
 
 #endif
