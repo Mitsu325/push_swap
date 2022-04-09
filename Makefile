@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/06 18:41:55 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/07 05:14:59 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,5 +91,9 @@ normi:
 				@echo "-------------- NORMINETTE -------------"
 				@echo "----------------------------------------\n$(DEFAULT)"
 				@norminette libft/src src
+
+debug:		CFLAGS+=-g
+debug:		fclean
+debug:		$(NAME)
 
 .PHONY:			all clean fclean re release val full-val normi
