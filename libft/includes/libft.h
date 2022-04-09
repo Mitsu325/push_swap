@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/09 18:31:18 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/09 18:51:59 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,9 @@ void	ft_strcpy(char *dst, const char *src, int dstsize);
 char	*ft_strdup(const char *s1);
 int		ft_strlen(const char *str);
 char	*ft_substr(char const *s, int start, int len);
+
+void	ft_putchar_fd(char ch, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putlst_fd(t_list *last, int fd);
 
 #endif

@@ -6,22 +6,24 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/09 18:30:13 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/09 19:09:53 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 SRC			=	src
 OBJ			=	obj
-SUB_DIR		=	lst num str
+SUB_DIR		=	lst num put str
 
 LST_F		=	ft_lstadd_back.c ft_lstclear.c
 NUM_F		=	ft_atoi.c ft_isdigit.c
+PUT_F		=	ft_putchar_fd.c ft_putlst_fd.c ft_putstr_fd.c
 STR_F		=	ft_split.c ft_strchr.c ft_strcpy.c ft_strdup.c ft_strlen.c \
 				ft_substr.c
 
 FILES		=	$(foreach file, $(LST_F), $(SRC)/lst/$(file))
 FILES		+=	$(foreach file, $(NUM_F), $(SRC)/num/$(file))
+FILES		+=	$(foreach file, $(PUT_F), $(SRC)/put/$(file))
 FILES		+=	$(foreach file, $(STR_F), $(SRC)/str/$(file))
 
 OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
@@ -55,10 +57,11 @@ re:				fclean all
 # =============== TEST ===============
 
 TEST		=	tests
-TEST_DIR	=	lst num str
+TEST_DIR	=	lst num put str
 TESTS		=	$(wildcard $(TEST)/*.c)
 TESTS		+=	$(wildcard $(TEST)/lst/*.c)
 TESTS		+=	$(wildcard $(TEST)/num/*.c)
+TESTS		+=	$(wildcard $(TEST)/put/*.c)
 TESTS		+=	$(wildcard $(TEST)/str/*.c)
 TESTBIN_DIR	=	$(foreach dir, $(TEST_DIR), $(addprefix $(TEST)/bin/, $(dir)))
 TESTBINS	=	$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
