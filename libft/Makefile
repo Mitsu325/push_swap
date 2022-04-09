@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/09 16:07:29 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/09 18:30:13 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC			=	src
 OBJ			=	obj
 SUB_DIR		=	lst num str
 
-LST_F		=	ft_lstadd_back.c
+LST_F		=	ft_lstadd_back.c ft_lstclear.c
 NUM_F		=	ft_atoi.c ft_isdigit.c
 STR_F		=	ft_split.c ft_strchr.c ft_strcpy.c ft_strdup.c ft_strlen.c \
 				ft_substr.c
