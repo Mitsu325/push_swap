@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 08:43:47 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/09 16:13:11 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # define SPC 0x020
 # define TAB 0x009
 # define CR 0x00D
+
+typedef struct s_list
+{
+	int				data;
+	struct s_list	*next;
+}					t_list;
+
+int		ft_lstadd_back(t_list **last_node, int data);
 
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
