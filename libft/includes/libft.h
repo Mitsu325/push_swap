@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/09 16:13:11 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/09 18:16:44 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_lstadd_back(t_list **last_node, int data);
+int		ft_lstadd_back(t_list **last, int data);
 
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
