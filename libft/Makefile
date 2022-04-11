@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/09 19:09:53 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/11 05:18:47 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJ			=	obj
 SUB_DIR		=	lst num put str
 
 LST_F		=	ft_lstadd_back.c ft_lstclear.c
-NUM_F		=	ft_atoi.c ft_isdigit.c
+NUM_F		=	ft_atoi.c ft_isdigit.c ft_itoa.c
 PUT_F		=	ft_putchar_fd.c ft_putlst_fd.c ft_putstr_fd.c
 STR_F		=	ft_split.c ft_strchr.c ft_strcpy.c ft_strdup.c ft_strlen.c \
 				ft_substr.c
