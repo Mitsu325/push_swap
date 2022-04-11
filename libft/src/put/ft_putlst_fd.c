@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:39:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/09 19:12:25 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/11 06:01:58 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 void	ft_putlst_fd(t_list *last, int fd)
 {
 	t_list	*temp;
+	char	*str_num;
 
 	if (last == NULL)
 		return ;
 	temp = last->next;
 	while (temp != last)
 	{
-		// need use ft_itoa (convert int to string)
-		// ft_putstr_fd(temp->data, fd);
-		ft_putstr_fd("1", fd);
+		str_num = ft_itoa(temp->data);
+		ft_putstr_fd(str_num, fd);
 		ft_putstr_fd("\n", fd);
 		temp = temp->next;
+		free(str_num);
 	}
-	ft_putstr_fd("1", fd);
+	str_num = ft_itoa(temp->data);
+	ft_putstr_fd(str_num, fd);
 	ft_putstr_fd("\n", fd);
+	free(str_num);
 }
