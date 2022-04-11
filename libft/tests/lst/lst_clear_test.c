@@ -15,7 +15,7 @@ void	suitesetup(void)
 	return ;
 }
 
-TestSuite(split, .init=suitesetup);
+TestSuite(lst_clear, .init=suitesetup);
 
 Test(lst_clear, unique_node)
 {

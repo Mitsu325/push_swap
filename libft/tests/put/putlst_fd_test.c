@@ -1,5 +1,6 @@
 #include <criterion/criterion.h>
 #include "../../includes/libft.h"
+#include <stdio.h>
 
 t_list *last = NULL;
 int first_data = 0;
@@ -14,11 +15,12 @@ void	suitesetup(void)
 	return ;
 }
 
-TestSuite(split, .init=suitesetup);
+TestSuite(put_lst, .init=suitesetup);
 
 Test(put_lst, unique_node)
 {
-	ft_lstadd_back(&last, first_data);
+	int	num = 8;
+	ft_lstadd_back(&last, num);
 	ft_putlst_fd(last, 1);
 	cr_assert(true, "Ensure print unique node");
 	ft_lstclear(&last);

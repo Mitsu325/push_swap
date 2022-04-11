@@ -15,7 +15,7 @@ void	suitesetup(void)
 	return ;
 }
 
-TestSuite(split, .init=suitesetup);
+TestSuite(lst_add_back, .init=suitesetup);
 
 Test(lst_add_back, empty_list)
 {
