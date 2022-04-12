@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 07:07:41 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/04/12 06:53:45 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/04/12 07:28:10 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <stdio.h>
+int	check_sort(t_list *last)
+{
+	t_list *current;
 
-# define EXIT_SUCCESS 0
-# define EXIT_FAILURE 1
-
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-
-int	check_list_integer(char **numbers);
-int	is_integer(long int	number);
-int	save(t_list **last, char *number);
-
-int	check_sort(t_list *last);
-
-#endif
+	if (last == NULL)
+			return (EXIT_FAILURE);
+	current = last->next;
+	if (last == current)
+		return (EXIT_SUCCESS);
+	while (current != last)
+	{
+		if (current->data >= current->next->data)
+			return (EXIT_FAILURE);
+		current = current->next;
+	}
+	return (EXIT_SUCCESS);
+}
