@@ -1,9 +1,9 @@
 #include <criterion/criterion.h>
 #include "../../includes/libft.h"
 
-char	*str = NULL;
-int		result = 0;
-int		expect = 0;
+char		*str = NULL;
+long int	result = 0;
+long int	expect = 0;
 
 Test(atoi, positive_num) {
 	str = "127";
@@ -36,14 +36,14 @@ Test(atoi, integer_min) {
 Test(atoi, greater_integer_max) {
 	str = "+2147483650";
 	result = ft_atoi(str);
-	expect = atoi(str);
+	expect = 2147483650;
 	cr_expect_eq(result, expect, "Ensure returns greater than the max integer");
 }
 
 Test(atoi, less_integer_min) {
 	str = "-2147483650";
 	result = ft_atoi(str);
-	expect = atoi(str);
+	expect = -2147483650;
 	cr_expect_eq(result, expect, "Ensure returns less than the min integer");
 }
 

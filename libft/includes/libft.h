@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/11 05:18:35 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:31:14 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ typedef struct s_list
 int		ft_lstadd_back(t_list **last, int data);
 void	ft_lstclear(t_list **last);
 
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
-int		is_white_space(int c);
-char	*ft_itoa(int n);
+long int	ft_atoi(const char *str);
+int			ft_isdigit(int c);
+int			is_white_space(int c);
+char		*ft_itoa(int n);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);

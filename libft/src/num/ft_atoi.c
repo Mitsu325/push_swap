@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:21:00 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/11 06:49:41 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:32:38 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	is_white_space(int c)
 	return (c == SPC || (c >= TAB && c <= CR));
 }
 
-int	calculate_num(const char *str, int sign)
+long int	calculate_num(const char *str, int sign)
 {
-	int	num;
+	long int	num;
 
 	num = 0;
 	while (ft_isdigit(*str))
@@ -31,7 +31,7 @@ int	calculate_num(const char *str, int sign)
 	return (sign * num);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	is_first_sign;
