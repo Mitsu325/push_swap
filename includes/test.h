@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 19:15:38 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 05:38:09 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	check_not_num_with_space(void);
 int	check_is_integer(void);
 int	check_max_integer(void);
 int	check_min_integer(void);
+
+int	check_save_number(void);
+int	check_save_number_with_space(void);
 
 int	print_status(char *filename, char *fname, char *message, int status);
 

@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:26:14 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 19:15:31 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 05:38:12 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,22 @@ static int	check_is_int(void)
 	return (EXIT_SUCCESS);
 }
 
+static int	check_save(void)
+{
+	if (check_save_number())
+		return (EXIT_FAILURE);
+	if (check_save_number_with_space())
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
+
 int	push_swap_test(void)
 {
 	if (check_list_int())
 		return (EXIT_FAILURE);
 	if (check_is_int())
+		return (EXIT_FAILURE);
+	if (check_save())
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
