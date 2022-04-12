@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:21:00 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 08:42:51 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/11 06:49:41 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 int	is_white_space(int c)
 {
-	if (c == SPC || (c >= TAB && c <= CR))
-		return (1);
-	return (0);
+	return (c == SPC || (c >= TAB && c <= CR));
 }
 
 int	calculate_num(const char *str, int sign)
