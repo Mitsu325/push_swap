@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/07 05:14:59 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/11 08:11:18 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC			=	src
 OBJ			=	obj
 SUB_DIR		=	tests
 
-SRC_FILE	=	main.c check.c
+SRC_FILE	=	main.c check.c save.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 FILES		+=	$(wildcard $(SRC)/tests/*.c)
