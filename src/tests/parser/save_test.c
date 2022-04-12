@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 05:51:22 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:46:21 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,77 @@ int	check_save_number_with_space(void)
 	}
 	return (print_status("parser_test.c", "check_save_number_with_space",
 	"Ensure returns 0 if save consecutive number separated space in circular linked list",
+	EXIT_FAILURE));
+}
+
+int	check_save_max_int(void)
+{
+	t_check_save	check;
+
+	check.number = "2147483647";
+	check.last = NULL;
+	check.result = save(&check.last, check.number);
+	ft_putlst_fd(check.last, 1);
+	ft_lstclear(&check.last);
+	if (check.result == EXIT_SUCCESS)
+	{
+		return (print_status("parser_test.c", "check_save_max_int",
+		"OK", EXIT_SUCCESS));
+	}
+	return (print_status("parser_test.c", "check_save_max_int",
+	"Ensure returns 0 if save max int in circular linked list",
+	EXIT_FAILURE));
+}
+
+int	check_save_min_int(void)
+{
+	t_check_save	check;
+
+	check.number = "-2147483648";
+	check.last = NULL;
+	check.result = save(&check.last, check.number);
+	ft_putlst_fd(check.last, 1);
+	ft_lstclear(&check.last);
+	if (check.result == EXIT_SUCCESS)
+	{
+		return (print_status("parser_test.c", "check_save_min_int",
+		"OK", EXIT_SUCCESS));
+	}
+	return (print_status("parser_test.c", "check_save_min_int",
+	"Ensure returns 0 if save min int in circular linked list",
+	EXIT_FAILURE));
+}
+
+int	check_save_greater_max_int(void)
+{
+	t_check_save	check;
+
+	check.number = "2147483650";
+	check.last = NULL;
+	check.result = save(&check.last, check.number);
+	if (check.result == EXIT_FAILURE)
+	{
+		return (print_status("parser_test.c", "check_save_greater_max_int",
+		"OK", EXIT_SUCCESS));
+	}
+	return (print_status("parser_test.c", "check_save_greater_max_int",
+	"Ensure returns 1 if number is greater than max int",
+	EXIT_FAILURE));
+}
+
+int	check_save_less_min_int(void)
+{
+	t_check_save	check;
+
+	check.number = "-2147483650";
+	check.last = NULL;
+	check.result = save(&check.last, check.number);
+	if (check.result == EXIT_FAILURE)
+	{
+		return (print_status("parser_test.c", "check_save_less_min_int",
+		"OK", EXIT_SUCCESS));
+	}
+	return (print_status("parser_test.c", "check_save_less_min_int",
+	"Ensure returns 1 if number is less than min int",
 	EXIT_FAILURE));
 }

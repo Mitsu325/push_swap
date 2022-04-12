@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 05:38:09 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:46:41 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	check_min_integer(void);
 
 int	check_save_number(void);
 int	check_save_number_with_space(void);
+int	check_save_max_int(void);
+int	check_save_min_int(void);
+int	check_save_greater_max_int(void);
+int	check_save_less_min_int(void);
 
 int	print_status(char *filename, char *fname, char *message, int status);
 
