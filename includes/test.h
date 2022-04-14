@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 05:26:01 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 06:19:19 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define TEST_H
 
 # include <stdio.h>
+# include <string.h>
 # include "push_swap.h"
 
-int	push_swap_test(void);
+int	parser_save_test(void);
 
 int	check_isdigit(void);
 int	check_is_not_digit(void);

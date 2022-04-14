@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/12 07:07:46 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/14 06:21:57 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,11 @@ SRC_FILE	=	main.c parser.c save.c check.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 FILES		+=	$(wildcard $(SRC)/tests/*.c)
-FILES		+=	$(wildcard $(SRC)/tests/parser/*.c)
+FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
 
 OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
+TEST_OBJ_DIR	=	obj/tests/parser_save
 
 HEADER		=	-I includes -I $(LIBFT_DIR)/includes
 LIBFT_DIR	=	libft
@@ -51,7 +52,7 @@ $(OBJ)/%.o:		$(SRC)/%.c
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 make_obj:
-				@mkdir -p $(OBJ) $(OBJ_DIR) obj/tests/parser
+				@mkdir -p $(OBJ) $(OBJ_DIR) $(TEST_OBJ_DIR)
 
 $(LIBFT):
 				@make --no-print-directory -C $(LIBFT_DIR)

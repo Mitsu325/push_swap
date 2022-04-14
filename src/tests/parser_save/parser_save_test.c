@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_test.c                                   :+:      :+:    :+:   */
+/*   parser_save_test.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:26:14 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 05:25:56 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 06:18:28 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	check_sort_test(void)
 	return (EXIT_SUCCESS);
 }
 
-int	push_swap_test(void)
+int	parser_save_test(void)
 {
 	if (check_list_int())
 		return (EXIT_FAILURE);
