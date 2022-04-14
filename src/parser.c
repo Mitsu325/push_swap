@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/13 08:30:11 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:37:53 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ static int	is_signal(int c)
 	return (c == '+' || c == '-');
 }
 
+int	is_space(int c)
+{
+	return (c == SPC);
+}
+
 static int	is_number(char *number)
 {
 	while (*number)
 	{
-		if (!ft_isdigit(*number) && !is_white_space(*number) &&
-			!is_signal(*number))
+		if (!ft_isdigit(*number) && !is_space(*number) && !is_signal(*number))
 			return (EXIT_FAILURE);
 		number++;
 	}
