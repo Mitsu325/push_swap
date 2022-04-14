@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/13 08:24:55 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:40:42 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	check_num_with_space(void)
 	t_check_list_int	check;
 
 	check.list[0] = "012  1";
-	check.list[1] = "2  	70	80";
+	check.list[1] = "2  70 80";
 	check.list[2] = "\0";
 	check.result = check_list_integer(check.list);
 	if (check.result == EXIT_SUCCESS)
@@ -108,8 +108,8 @@ int	check_not_num_with_space(void)
 {
 	t_check_list_int	check;
 
-	check.list[0] = "012  1";
-	check.list[1] = "2P  	70";
+	check.list[0] = "012	  1";
+	check.list[1] = "2P  70";
 	check.list[2] = "\0";
 	check.result = check_list_integer(check.list);
 	if (check.result == EXIT_FAILURE)
