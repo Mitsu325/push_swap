@@ -6,17 +6,23 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 05:59:37 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/13 08:30:11 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	is_signal(int c)
+{
+	return (c == '+' || c == '-');
+}
+
 static int	is_number(char *number)
 {
 	while (*number)
 	{
-		if (!ft_isdigit(*number) && !is_white_space(*number))
+		if (!ft_isdigit(*number) && !is_white_space(*number) &&
+			!is_signal(*number))
 			return (EXIT_FAILURE);
 		number++;
 	}
