@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:26:14 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 07:27:15 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/13 08:25:05 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ static int	check_list_int(void)
 	if (check_num_with_space())
 		return (EXIT_FAILURE);
 	if (check_not_num_with_space())
+		return (EXIT_FAILURE);
+	if (check_num_with_positive_sign())
+		return (EXIT_FAILURE);
+	if (check_num_with_negative_sign())
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

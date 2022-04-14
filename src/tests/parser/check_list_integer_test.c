@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/06 19:00:00 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/13 08:24:55 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,42 @@ int	check_not_num_with_space(void)
 	return (print_status("check_list_integer_test.c",
 	"check_not_num_with_space",
 	"Ensure returns 1 if list containst other non-number char", EXIT_FAILURE));
+}
+
+int	check_num_with_positive_sign(void)
+{
+	t_check_list_int	check;
+
+	check.list[0] = "012  1";
+	check.list[1] = "2  +70";
+	check.list[2] = "\0";
+	check.result = check_list_integer(check.list);
+	if (check.result == EXIT_SUCCESS)
+	{
+		return (print_status("check_list_integer_test.c",
+		"check_num_with_positive_sign", "OK", EXIT_SUCCESS));
+	}
+	return (print_status("check_list_integer_test.c",
+	"check_num_with_positive_sign",
+	"Ensure returns 0 if list containst number with positive sign",
+	EXIT_FAILURE));
+}
+
+int	check_num_with_negative_sign(void)
+{
+	t_check_list_int	check;
+
+	check.list[0] = "-12  1";
+	check.list[1] = "2  70";
+	check.list[2] = "\0";
+	check.result = check_list_integer(check.list);
+	if (check.result == EXIT_SUCCESS)
+	{
+		return (print_status("check_list_integer_test.c",
+		"check_num_with_negative_sign", "OK", EXIT_SUCCESS));
+	}
+	return (print_status("check_list_integer_test.c",
+	"check_num_with_negative_sign",
+	"Ensure returns 0 if list containst number with negative sign",
+	EXIT_FAILURE));
 }
