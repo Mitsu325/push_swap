@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:26:14 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 05:06:46 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:25:56 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ static int	check_sort_test(void)
 	if (check_sort_multiple_number())
 		return (EXIT_FAILURE);
 	if (check_not_sort())
-		return (EXIT_FAILURE);
-	if (check_sort_number_duplicate())
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

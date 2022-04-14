@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 06:53:45 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 07:28:10 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:25:33 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_sort(t_list *last)
 		return (EXIT_SUCCESS);
 	while (current != last)
 	{
-		if (current->data >= current->next->data)
+		if (current->data > current->next->data)
 			return (EXIT_FAILURE);
 		current = current->next;
 	}
