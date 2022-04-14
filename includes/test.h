@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/13 08:25:09 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:06:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	check_save_max_int(void);
 int	check_save_min_int(void);
 int	check_save_greater_max_int(void);
 int	check_save_less_min_int(void);
+int	check_save_duplicate(void);
 
 int	check_sort_null(void);
 int	check_sort_one_number(void);
