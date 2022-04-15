@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 08:14:00 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 08:27:24 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	parser_save(char **argv, t_list **last)
 			return (FAILURE);
 		i++;
 	}
-	if (*last == NULL || *last == (*last)->next)
+	if (*last == NULL || check_sort(*last) == SUCCESS)
 		exit_safe(last, SUCCESS);
 	return (SUCCESS);
 }
