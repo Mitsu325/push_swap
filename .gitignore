@@ -3,3 +3,4 @@ push_swap
 .vscode
 libft.a
 libft/tests/bin
+valgrind-out.txt
