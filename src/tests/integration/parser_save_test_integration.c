@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 08:16:34 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 08:30:21 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	test_multiple_number(void)
 	check.argv[0] = "./push_swap";
 	check.argv[1] = "142";
 	check.argv[2] = "2  -9";
-	check.argv[3] = "05";
+	check.argv[3] = "+05";
 	check.argv[4] = "\0";
 	check.last = NULL;
 	check.result = parser_save(check.argv, &check.last);
@@ -75,6 +75,27 @@ static int	test_multiple_number(void)
 	"Ensure returns 0 if save numbers", FAILURE));
 }
 
+// static int	test_sorted_number(void)
+// {
+// 	t_parser_save check;
+
+// 	check.argv[0] = "./push_swap";
+// 	check.argv[1] = "-142";
+// 	check.argv[2] = "2  9";
+// 	check.argv[3] = "+051";
+// 	check.argv[4] = "\0";
+// 	check.last = NULL;
+// 	check.result = parser_save(check.argv, &check.last);
+// 	// ft_putlst_fd(check.last, 1);
+// 	// ft_lstclear(&check.last);
+// 	if (check.result == FAILURE || check.result == SUCCESS)
+// 	{
+// 		return (print_status("parser_save", "test_sorted_number",
+// 		"Ensure exit if argv is sorted number", FAILURE));
+// 	}
+// 	return (SUCCESS);
+// }
+
 int	parser_save_test_i(void)
 {
 	// if (test_empty_string())
@@ -83,5 +104,7 @@ int	parser_save_test_i(void)
 	// 	return (FAILURE);
 	if (test_multiple_number())
 		return (FAILURE);
+	// if (test_sorted_number())
+	// 	return (FAILURE);
 	return (SUCCESS);
 }
