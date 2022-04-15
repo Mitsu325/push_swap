@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 13:19:02 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 17:15:11 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	exit_safe(t_list **last, int status)
 	exit(status);
 }
 
-int			parser_save(char **argv, t_list **last)
+int	parser_save(char **argv, t_list **last)
 {
 	int	i;
 

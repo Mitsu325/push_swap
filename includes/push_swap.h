@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 13:58:28 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 17:13:02 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 int	parser_save(char **argv, t_list **last);
 int	check_number(char **numbers);
 int	save_number(t_list **last, char *number);
-int	is_integer(long int	number);
+int	is_integer(long int number);
 int	check_sort(t_list *last);
 
 #endif

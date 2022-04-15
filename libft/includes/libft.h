@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 06:31:14 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 17:13:35 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_lstadd_back(t_list **last, int data);
-void	ft_lstclear(t_list **last);
+int			ft_lstadd_back(t_list **last, int data);
+void		ft_lstclear(t_list **last);
 
 long int	ft_atoi(const char *str);
 int			ft_isdigit(int c);
 int			is_white_space(int c);
 char		*ft_itoa(int n);
 
-char	**ft_split(char const *s, char c);
-char	*ft_strchr(const char *s, int c);
-void	ft_strcpy(char *dst, const char *src, int dstsize);
-char	*ft_strdup(const char *s1);
-int		ft_strlen(const char *str);
-char	*ft_substr(char const *s, int start, int len);
+char		**ft_split(char const *s, char c);
+char		*ft_strchr(const char *s, int c);
+void		ft_strcpy(char *dst, const char *src, int dstsize);
+char		*ft_strdup(const char *s1);
+int			ft_strlen(const char *str);
+char		*ft_substr(char const *s, int start, int len);
 
-void	ft_putchar_fd(char ch, int fd);
-void	ft_putstr_fd(char *str, int fd);
-void	ft_putlst_fd(t_list *last, int fd);
+void		ft_putchar_fd(char ch, int fd);
+void		ft_putstr_fd(char *str, int fd);
+void		ft_putlst_fd(t_list *last, int fd);
 
 #endif
