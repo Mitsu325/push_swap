@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 08:30:21 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:43:27 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,26 @@ static int	test_multiple_number(void)
 // 	return (SUCCESS);
 // }
 
+// static int	test_no_int(void)
+// {
+// 	t_parser_save check;
+
+// 	check.argv[0] = "./push_swap";
+// 	check.argv[1] = "142";
+// 	check.argv[2] = "one  23";
+// 	check.argv[3] = "2";
+// 	check.argv[4] = "\0";
+// 	check.last = NULL;
+// 	check.result = parser_save(check.argv, &check.last);
+// 	ft_lstclear(&check.last);
+// 	if (check.result == FAILURE || check.result == SUCCESS)
+// 	{
+// 		return (print_status("parser_save", "test_non_int",
+// 		"Ensure exit if argv contains no int", FAILURE));
+// 	}
+// 	return (SUCCESS);
+// }
+
 int	parser_save_test_i(void)
 {
 	// if (test_empty_string())
@@ -105,6 +125,8 @@ int	parser_save_test_i(void)
 	if (test_multiple_number())
 		return (FAILURE);
 	// if (test_sorted_number())
+	// 	return (FAILURE);
+	// if (test_no_int())
 	// 	return (FAILURE);
 	return (SUCCESS);
 }
