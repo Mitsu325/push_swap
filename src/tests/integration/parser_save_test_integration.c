@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 12:08:43 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 12:23:48 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,25 +136,45 @@ static int	test_multiple_number(void)
 // 	return (SUCCESS);
 // }
 
-static int	test_smaller_int(void)
-{
-	t_parser_save check;
+// static int	test_smaller_int(void)
+// {
+// 	t_parser_save check;
 
-	check.argv[0] = "./push_swap";
-	check.argv[1] = "-21474836481";
-	check.argv[2] = "6  23";
-	check.argv[3] = "1";
-	check.argv[4] = "\0";
-	check.last = NULL;
-	check.result = parser_save(check.argv, &check.last);
-	ft_lstclear(&check.last);
-	if (check.result == FAILURE || check.result == SUCCESS)
-	{
-		return (print_status("parser_save", "test_smaller_int",
-		"Ensure exit and put Error if argv smaller than int", FAILURE));
-	}
-	return (SUCCESS);
-}
+// 	check.argv[0] = "./push_swap";
+// 	check.argv[1] = "-21474836481";
+// 	check.argv[2] = "6  23";
+// 	check.argv[3] = "1";
+// 	check.argv[4] = "\0";
+// 	check.last = NULL;
+// 	check.result = parser_save(check.argv, &check.last);
+// 	ft_lstclear(&check.last);
+// 	if (check.result == FAILURE || check.result == SUCCESS)
+// 	{
+// 		return (print_status("parser_save", "test_smaller_int",
+// 		"Ensure exit and put Error if argv smaller than int", FAILURE));
+// 	}
+// 	return (SUCCESS);
+// }
+
+// static int	test_duplicates(void)
+// {
+// 	t_parser_save check;
+
+// 	check.argv[0] = "./push_swap";
+// 	check.argv[1] = "-9";
+// 	check.argv[2] = "6  -9";
+// 	check.argv[3] = "1";
+// 	check.argv[4] = "\0";
+// 	check.last = NULL;
+// 	check.result = parser_save(check.argv, &check.last);
+// 	ft_lstclear(&check.last);
+// 	if (check.result == FAILURE || check.result == SUCCESS)
+// 	{
+// 		return (print_status("parser_save", "test_duplicates",
+// 		"Ensure exit and put Error if argv are duplicates", FAILURE));
+// 	}
+// 	return (SUCCESS);
+// }
 
 int	parser_save_test_i(void)
 {
@@ -170,7 +190,9 @@ int	parser_save_test_i(void)
 	// 	return (FAILURE);
 	// if (test_bigger_int())
 	// 	return (FAILURE);
-	if (test_smaller_int())
-		return (FAILURE);
+	// if (test_smaller_int())
+	// 	return (FAILURE);
+	// if (test_duplicates())
+	// 	return (FAILURE);
 	return (SUCCESS);
 }
