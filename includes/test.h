@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 06:19:19 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/14 06:54:15 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdio.h>
 # include <string.h>
 # include "push_swap.h"
+
+// Unit Test
 
 int	parser_save_test(void);
 
@@ -46,5 +48,8 @@ int	check_sort_multiple_number(void);
 int	check_not_sort(void);
 
 int	print_status(char *filename, char *fname, char *message, int status);
+
+// Test Integration
+int	parser_save_test_i(void);
 
 #endif
