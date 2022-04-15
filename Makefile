@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/15 14:10:49 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/15 22:20:26 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ normi:
 				@echo "\n$(YELLOW)----------------------------------------"
 				@echo "-------------- NORMINETTE -------------"
 				@echo "----------------------------------------\n$(DEFAULT)"
-				@norminette libft/src src
+				@norminette libft/src src/parser
 
 debug:		CFLAGS+=-g
 debug:		fclean
