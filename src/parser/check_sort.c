@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 06:53:45 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 13:56:03 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:59:34 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	check_sort(t_list *last)
 {
-	t_list *current;
+	t_list	*current;
 
 	if (last == NULL)
-			return (FAILURE);
+		return (FAILURE);
 	current = last->next;
 	if (last == current)
 		return (SUCCESS);

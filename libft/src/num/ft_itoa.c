@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 05:02:14 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/11 05:15:29 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 22:01:06 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ static size_t	get_digits(int n)
 	size_t	i;
 
 	i = 1;
-	while (n /= 10)
+	n /= 10;
+	while (n)
+	{
+		n /= 10;
 		i++;
+	}
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*str_num;
 	size_t		digits;

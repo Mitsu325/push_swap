@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:58:36 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 08:08:38 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 22:02:45 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lstclear(t_list **last)
 {
-	t_list *temp;
-	t_list *current;
+	t_list	*temp;
+	t_list	*current;
 
 	if (*last == NULL)
 		return ;

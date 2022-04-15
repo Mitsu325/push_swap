@@ -6,14 +6,14 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 13:54:55 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:59:47 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TODO: include static after remove tests
-int	is_integer(long int	number)
+int	is_integer(long int number)
 {
 	if (number >= INT_MIN && number <= INT_MAX)
 		return (SUCCESS);
