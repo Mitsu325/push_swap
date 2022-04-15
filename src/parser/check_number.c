@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 19:26:57 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/04/15 13:14:41 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "test.h"
 
-int	parser_test(char **argv)
+static int	is_signal(int c)
 {
-	if (!strcmp(argv[1], "-tp"))
-		return (parser_save_test());
-	if (!strcmp(argv[1], "-ti"))
-		return (parser_save_test_i());
+	return (c == '+' || c == '-');
+}
+
+static int	is_space(int c)
+{
+	return (c == SPC);
+}
+
+static int	is_number(char *number)
+{
+	while (*number)
+	{
+		if (!ft_isdigit(*number) && !is_space(*number) && !is_signal(*number))
+			return (FAILURE);
+		number++;
+	}
 	return (SUCCESS);
 }
 
-int	main(int argc, char **argv)
+int	check_number(char **numbers)
 {
-	t_list	*last;
+	unsigned int	i;
 
-	if (argc < 2)
-		return (FAILURE);
-	if (parser_test(argv))
-		return (FAILURE);
-	last = NULL;
-	parser_save(argv, &last);
-	ft_lstclear(&last);
+	i = 0;
+	while (*(numbers + i) && **(numbers + i))
+	{
+		if (is_number(*(numbers + i)))
+			return (FAILURE);
+		i++;
+	}
 	return (SUCCESS);
 }

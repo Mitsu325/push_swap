@@ -6,65 +6,59 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/06 00:22:04 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/15 19:24:50 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-DEFAULT		= \e[39m
-GREEN		= \e[92m
-MAGENTA		= \e[95m
-CYAN		= \e[96m
+DEFAULT		=	\e[39m
+GREEN		=	\e[92m
+YELLOW		=	\e[93m
+MAGENTA		=	\e[95m
+CYAN		=	\e[96m
 
-NAME		= push_swap
-SRC			= src
-OBJ			= obj
+NAME		=	push_swap
+SRC			=	src
+OBJ			=	obj
+SUB_DIR		=	tests parser
 
-SRC_FILE	= main.c
+SRC_FILE	=	main.c
+PARSER_FILE	=	parser_save.c check_number.c save_number.c check_sort.c
 
-FILES		= $(foreach file, $(SRC_FILE), $(SRC)/$(file))
+FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
+FILES		+=	$(foreach file, $(PARSER_FILE), $(SRC)/parser/$(file))
+FILES		+=	$(wildcard $(SRC)/tests/*.c)
+FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
+FILES		+=	$(wildcard $(SRC)/tests/integration/*.c)
 
-OBJS		= $(subst $(SRC), $(OBJ), $(FILES:.c=.o))
+OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
+OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
+TEST_OBJ_DIR	=	obj/tests/parser_save obj/tests/integration
 
-HEADER		= -I includes -I $(LIBFT_DIR)/includes
-LIBFT_DIR	= libft
-LIBFT		= $(LIBFT_DIR)/libft.a
-LIB_FLAGS	= -L $(LIBFT_DIR)/ -lft
+HEADER		=	-I includes -I $(LIBFT_DIR)/includes
+LIBFT_DIR	=	libft
+LIBFT		=	$(LIBFT_DIR)/libft.a
+LIB_FLAGS	=	-L $(LIBFT_DIR) -lft
 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			=	rm -rf
 
 all:		$(NAME)
 
-$(NAME):	$(LIBFT) $(OBJS)
-			@echo "\n$(CYAN)----------------------------------------"
-			@echo "------------ MAKE PUSH SWAP ------------"
-			@echo "----------------------------------------\n$(DEFAULT)"
-			@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
+$(NAME):		make_obj $(LIBFT) $(OBJS)
+				@echo "\n$(CYAN)----------------------------------------"
+				@echo "------------ MAKE PUSH SWAP ------------"
+				@echo "----------------------------------------\n$(DEFAULT)"
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
 
-$(OBJ)/%.o:	$(SRC)/%.c
-			@mkdir -p $(OBJ)
-			@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+$(OBJ)/%.o:		$(SRC)/%.c
+				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+make_obj:
+				@mkdir -p $(OBJ) $(OBJ_DIR) $(TEST_OBJ_DIR)
 
 $(LIBFT):
-			@make --no-print-directory -C $(LIBFT_DIR)
-
-clean:
-			@make clean --no-print-directory -C $(LIBFT_DIR)
-			@$(RM) $(OBJS)
-			@$(RM) $(OBJ)
-
-fclean:		clean
-			@make fclean --no-print-directory -C $(LIBFT_DIR)
-			@$(RM) $(NAME)
-			@$(RM) valgrind-out.txt
-			@echo "\n$(MAGENTA)----------------------------------------"
-			@echo "------------- CLEANING DONE ------------"
-			@echo "----------------------------------------\n$(DEFAULT)"
-
-re:			fclean all
-
-# ============ CHECK NORMI AND MEMORY LEAK ============
+				@make --no-print-directory -C $(LIBFT_DIR)
 
 release:	CFLAGS+=-g -fsanitize=address
 release:	fclean
