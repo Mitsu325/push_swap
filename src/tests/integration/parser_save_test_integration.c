@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:26:18 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ static int	test_empty_string(void)
 	check.argv[2] = "\0";
 	check.last = NULL;
 	check.result = parser_save(check.argv, &check.last);
-	if (check.result == EXIT_FAILURE || check.result == EXIT_SUCCESS)
+	if (check.result == FAILURE || check.result == SUCCESS)
 	{
 		return (print_status("parser_save", "test_empty_string",
-		"Ensure exit if argv is string empty", EXIT_FAILURE));
+		"Ensure exit if argv is string empty", FAILURE));
 	}
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int	parser_save_test_i(void)
 {
 	if (test_empty_string())
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (FAILURE);
+	return (SUCCESS);
 }

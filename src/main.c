@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 07:46:15 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	parser_test(char **argv)
 		return (parser_save_test());
 	if (!strcmp(argv[1], "-ti"))
 		return (parser_save_test_i());
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	if (parser_test(argv))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (FAILURE);
+	return (SUCCESS);
 }

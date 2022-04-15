@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:14:11 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-// # define EXIT_SUCCESS 0
-// # define EXIT_FAILURE 1
+# define SUCCESS 0
+# define FAILURE 1
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648

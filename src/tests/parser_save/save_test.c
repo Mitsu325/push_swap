@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 05:20:19 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	check_save_number(void)
 	check.last = NULL;
 	check.result = save(&check.last, check.number);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_number", "OK",
-		EXIT_SUCCESS));
+		SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_number",
-	"Ensure returns 0 if save number in circular linked list", EXIT_FAILURE));
+	"Ensure returns 0 if save number in circular linked list", FAILURE));
 }
 
 // * The number after the tab is disregarded but not return an error
@@ -45,14 +45,14 @@ int	check_save_number_with_space(void)
 	check.last = NULL;
 	check.result = save(&check.last, check.number);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_number_with_space",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_number_with_space",
 	"Ensure returns 0 if save consecutive number separated space in circular linked list",
-	EXIT_FAILURE));
+	FAILURE));
 }
 
 int	check_save_max_int(void)
@@ -64,14 +64,14 @@ int	check_save_max_int(void)
 	check.result = save(&check.last, check.number);
 	ft_putlst_fd(check.last, 1);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_max_int",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_max_int",
 	"Ensure returns 0 if save max int in circular linked list",
-	EXIT_FAILURE));
+	FAILURE));
 }
 
 int	check_save_min_int(void)
@@ -83,14 +83,14 @@ int	check_save_min_int(void)
 	check.result = save(&check.last, check.number);
 	ft_putlst_fd(check.last, 1);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_min_int",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_min_int",
 	"Ensure returns 0 if save min int in circular linked list",
-	EXIT_FAILURE));
+	FAILURE));
 }
 
 int	check_save_greater_max_int(void)
@@ -100,14 +100,14 @@ int	check_save_greater_max_int(void)
 	check.number = "+2147483650";
 	check.last = NULL;
 	check.result = save(&check.last, check.number);
-	if (check.result == EXIT_FAILURE)
+	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_greater_max_int",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_greater_max_int",
 	"Ensure returns 1 if number is greater than max int",
-	EXIT_FAILURE));
+	FAILURE));
 }
 
 int	check_save_less_min_int(void)
@@ -117,14 +117,14 @@ int	check_save_less_min_int(void)
 	check.number = "-2147483650";
 	check.last = NULL;
 	check.result = save(&check.last, check.number);
-	if (check.result == EXIT_FAILURE)
+	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_less_min_int",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_less_min_int",
 	"Ensure returns 1 if number is less than min int",
-	EXIT_FAILURE));
+	FAILURE));
 }
 
 int	check_save_duplicate(void)
@@ -141,12 +141,12 @@ int	check_save_duplicate(void)
 	check.number = "9";
 	check.result = save(&check.last, check.number);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_FAILURE)
+	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_duplicate",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("save_test.c", "check_save_duplicate",
 	"Ensure returns 1 if number is duplicate",
-	EXIT_FAILURE));
+	FAILURE));
 }

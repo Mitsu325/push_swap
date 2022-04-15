@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 06:56:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 05:25:45 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	check_sort_null(void)
 
 	check.last = NULL;
 	check.result = check_sort(check.last);
-	if (check.result == EXIT_FAILURE)
+	if (check.result == FAILURE)
 	{
 		return (print_status("check_sort_test.c", "check_sort_null", "OK",
-		EXIT_SUCCESS));
+		SUCCESS));
 	}
 	return (print_status("check_sort_test.c", "check_sort_null",
-	"Ensure returns 1 if it last is NULL", EXIT_FAILURE));
+	"Ensure returns 1 if it last is NULL", FAILURE));
 }
 
 int	check_sort_one_number(void)
@@ -41,13 +41,13 @@ int	check_sort_one_number(void)
 	ft_lstadd_back(&check.last, 3);
 	check.result = check_sort(check.last);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("check_sort_test.c", "check_one_number", "OK",
-		EXIT_SUCCESS));
+		SUCCESS));
 	}
 	return (print_status("check_sort_test.c", "check_one_number",
-	"Ensure returns 0 if it only has one number", EXIT_FAILURE));
+	"Ensure returns 0 if it only has one number", FAILURE));
 }
 
 int	check_sort_multiple_number(void)
@@ -61,13 +61,13 @@ int	check_sort_multiple_number(void)
 	ft_lstadd_back(&check.last, 123);
 	check.result = check_sort(check.last);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_SUCCESS)
+	if (check.result == SUCCESS)
 	{
 		return (print_status("check_sort_test.c", "check_sort_multiple_number",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("check_sort_test.c", "check_sort_multiple_number",
-	"Ensure returns 0 if numbers are sorted", EXIT_FAILURE));
+	"Ensure returns 0 if numbers are sorted", FAILURE));
 }
 
 int	check_not_sort(void)
@@ -81,11 +81,11 @@ int	check_not_sort(void)
 	ft_lstadd_back(&check.last, 123);
 	check.result = check_sort(check.last);
 	ft_lstclear(&check.last);
-	if (check.result == EXIT_FAILURE)
+	if (check.result == FAILURE)
 	{
 		return (print_status("check_sort_test.c", "check_not_sort",
-		"OK", EXIT_SUCCESS));
+		"OK", SUCCESS));
 	}
 	return (print_status("check_sort_test.c", "check_not_sort",
-	"Ensure returns 1 if numbers are not sorted", EXIT_FAILURE));
+	"Ensure returns 1 if numbers are not sorted", FAILURE));
 }
