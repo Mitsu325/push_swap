@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:08:11 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ int	parser_test(char **argv)
 
 int	main(int argc, char **argv)
 {
+	t_list	*last;
+
 	if (argc < 2)
 		return (FAILURE);
 	if (parser_test(argv))
 		return (FAILURE);
+	last = NULL;
+	parser_save(argv, &last);
+	ft_lstclear(&last);
 	return (SUCCESS);
 }
