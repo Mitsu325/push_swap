@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/14 06:21:57 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/14 06:55:41 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,16 @@ SRC			=	src
 OBJ			=	obj
 SUB_DIR		=	tests
 
-SRC_FILE	=	main.c parser.c save.c check.c
+SRC_FILE	=	main.c parser.c save.c check.c parser_save.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 FILES		+=	$(wildcard $(SRC)/tests/*.c)
 FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
+FILES		+=	$(wildcard $(SRC)/tests/integration/*.c)
 
 OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
-TEST_OBJ_DIR	=	obj/tests/parser_save
+TEST_OBJ_DIR	=	obj/tests/parser_save obj/tests/integration
 
 HEADER		=	-I includes -I $(LIBFT_DIR)/includes
 LIBFT_DIR	=	libft
