@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/14 06:55:41 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/15 08:10:47 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,12 +82,12 @@ release:		$(NAME)
 val:			fclean
 val:			$(NAME)
 val:
-				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(num)
+				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(argv)
 
 full-val:		fclean
 full-val:		$(NAME)
 full-val:
-				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(num)
+				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(argv)
 
 normi:
 				@echo "\n$(YELLOW)----------------------------------------"

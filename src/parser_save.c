@@ -6,12 +6,18 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:50:05 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 08:14:00 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+void	exit_safe(t_list **last, int status)
+{
+	ft_lstclear(last);
+	exit(status);
+}
 
 int	parser_save(char **argv, t_list **last)
 {
@@ -27,6 +33,6 @@ int	parser_save(char **argv, t_list **last)
 		i++;
 	}
 	if (*last == NULL || *last == (*last)->next)
-		exit(SUCCESS);
+		exit_safe(last, SUCCESS);
 	return (SUCCESS);
 }
