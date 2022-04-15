@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   check_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:14:41 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_signal(int c)
 	return (c == '+' || c == '-');
 }
 
-int	is_space(int c)
+static int	is_space(int c)
 {
 	return (c == SPC);
 }
@@ -33,7 +33,7 @@ static int	is_number(char *number)
 	return (SUCCESS);
 }
 
-int	check_list_integer(char **numbers)
+int	check_number(char **numbers)
 {
 	unsigned int	i;
 
@@ -45,11 +45,4 @@ int	check_list_integer(char **numbers)
 		i++;
 	}
 	return (SUCCESS);
-}
-
-int	is_integer(long int	number)
-{
-	if (number >= INT_MIN && number <= INT_MAX)
-		return (SUCCESS);
-	return (FAILURE);
 }

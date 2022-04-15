@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:58:28 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-int	check_list_integer(char **numbers);
-int	is_integer(long int	number);
-int	save(t_list **last, char *number);
-
-int	check_sort(t_list *last);
-
 int	parser_save(char **argv, t_list **last);
+int	check_number(char **numbers);
+int	save_number(t_list **last, char *number);
+int	is_integer(long int	number);
+int	check_sort(t_list *last);
 
 #endif

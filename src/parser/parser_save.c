@@ -6,14 +6,14 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 12:05:57 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:19:02 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	exit_safe(t_list **last, int status)
+static void	exit_safe(t_list **last, int status)
 {
 	if (status == FAILURE)
 		ft_putstr_fd("Error\n", 1);
@@ -21,16 +21,16 @@ void	exit_safe(t_list **last, int status)
 	exit(status);
 }
 
-int	parser_save(char **argv, t_list **last)
+int			parser_save(char **argv, t_list **last)
 {
 	int	i;
 
-	if (check_list_integer(++argv))
+	if (check_number(++argv))
 		exit_safe(last, FAILURE);
 	i = 0;
 	while (*(argv + i) && **(argv + i))
 	{
-		if (save(last, *(argv + i)))
+		if (save_number(last, *(argv + i)))
 			exit_safe(last, FAILURE);
 		i++;
 	}

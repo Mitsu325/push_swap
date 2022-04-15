@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 07:37:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:19:02 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_save_number(void)
 
 	check.number = "0";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	ft_lstclear(&check.last);
 	if (check.result == SUCCESS)
 	{
@@ -43,7 +43,7 @@ int	check_save_number_with_space(void)
 
 	check.number = "0  4        34	123";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	ft_lstclear(&check.last);
 	if (check.result == SUCCESS)
 	{
@@ -61,7 +61,7 @@ int	check_save_max_int(void)
 
 	check.number = "2147483647";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	ft_putlst_fd(check.last, 1);
 	ft_lstclear(&check.last);
 	if (check.result == SUCCESS)
@@ -80,7 +80,7 @@ int	check_save_min_int(void)
 
 	check.number = "-2147483648";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	ft_putlst_fd(check.last, 1);
 	ft_lstclear(&check.last);
 	if (check.result == SUCCESS)
@@ -99,7 +99,7 @@ int	check_save_greater_max_int(void)
 
 	check.number = "+2147483650";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_greater_max_int",
@@ -116,7 +116,7 @@ int	check_save_less_min_int(void)
 
 	check.number = "-2147483650";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_less_min_int",
@@ -133,13 +133,13 @@ int	check_save_duplicate(void)
 
 	check.number = "3";
 	check.last = NULL;
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	check.number = "9";
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	check.number = "5";
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	check.number = "9";
-	check.result = save(&check.last, check.number);
+	check.result = save_number(&check.last, check.number);
 	ft_lstclear(&check.last);
 	if (check.result == FAILURE)
 	{

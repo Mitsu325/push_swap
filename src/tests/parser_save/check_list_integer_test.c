@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_list_integer_test.c                          :+:      :+:    :+:   */
+/*   check_number_test.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,13 +25,13 @@ int	check_isdigit(void)
 	check.list[0] = "0";
 	check.list[1] = "2";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == SUCCESS)
 	{
-		return (print_status("check_list_integer_test.c", "check_isdigit", "OK",
+		return (print_status("check_number_test.c", "check_isdigit", "OK",
 		SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c", "check_isdigit",
+	return (print_status("check_number_test.c", "check_isdigit",
 	"Ensure returns 0 if list is integer", FAILURE));
 }
 
@@ -42,13 +42,13 @@ int	check_is_not_digit(void)
 	check.list[0] = "0";
 	check.list[1] = "A";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == FAILURE)
 	{
-		return (print_status("check_list_integer_test.c", "check_is_not_digit",
+		return (print_status("check_number_test.c", "check_is_not_digit",
 		"OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c", "check_is_not_digit",
+	return (print_status("check_number_test.c", "check_is_not_digit",
 	"Ensure returns 1 if list containst other non-digit char", FAILURE));
 }
 
@@ -59,13 +59,13 @@ int	check_isnumber(void)
 	check.list[0] = "10";
 	check.list[1] = "202";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == SUCCESS)
 	{
-		return (print_status("check_list_integer_test.c", "check_isnumber",
+		return (print_status("check_number_test.c", "check_isnumber",
 		"OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c", "check_isnumber",
+	return (print_status("check_number_test.c", "check_isnumber",
 	"Ensure returns 0 if is number", FAILURE));
 }
 
@@ -76,13 +76,13 @@ int	check_is_not_number(void)
 	check.list[0] = "10";
 	check.list[1] = "Hey";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == FAILURE)
 	{
-		return (print_status("check_list_integer_test.c", "check_is_not_number",
+		return (print_status("check_number_test.c", "check_is_not_number",
 		"OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c", "check_is_not_number",
+	return (print_status("check_number_test.c", "check_is_not_number",
 	"Ensure returns 1 if if list containst other non-number char",
 	FAILURE));
 }
@@ -94,13 +94,13 @@ int	check_num_with_space(void)
 	check.list[0] = "012  1";
 	check.list[1] = "2  70 80";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == SUCCESS)
 	{
-		return (print_status("check_list_integer_test.c",
+		return (print_status("check_number_test.c",
 		"check_num_with_space", "OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c", "check_num_with_space",
+	return (print_status("check_number_test.c", "check_num_with_space",
 	"Ensure returns 0 if number in format string with spaces", FAILURE));
 }
 
@@ -111,13 +111,13 @@ int	check_not_num_with_space(void)
 	check.list[0] = "012	  1";
 	check.list[1] = "2P  70";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == FAILURE)
 	{
-		return (print_status("check_list_integer_test.c",
+		return (print_status("check_number_test.c",
 		"check_not_num_with_space", "OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c",
+	return (print_status("check_number_test.c",
 	"check_not_num_with_space",
 	"Ensure returns 1 if list containst other non-number char", FAILURE));
 }
@@ -129,13 +129,13 @@ int	check_num_with_positive_sign(void)
 	check.list[0] = "012  1";
 	check.list[1] = "2  +70";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == SUCCESS)
 	{
-		return (print_status("check_list_integer_test.c",
+		return (print_status("check_number_test.c",
 		"check_num_with_positive_sign", "OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c",
+	return (print_status("check_number_test.c",
 	"check_num_with_positive_sign",
 	"Ensure returns 0 if list containst number with positive sign",
 	FAILURE));
@@ -148,13 +148,13 @@ int	check_num_with_negative_sign(void)
 	check.list[0] = "-12  1";
 	check.list[1] = "2  70";
 	check.list[2] = "\0";
-	check.result = check_list_integer(check.list);
+	check.result = check_number(check.list);
 	if (check.result == SUCCESS)
 	{
-		return (print_status("check_list_integer_test.c",
+		return (print_status("check_number_test.c",
 		"check_num_with_negative_sign", "OK", SUCCESS));
 	}
-	return (print_status("check_list_integer_test.c",
+	return (print_status("check_number_test.c",
 	"check_num_with_negative_sign",
 	"Ensure returns 0 if list containst number with negative sign",
 	FAILURE));

@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/15 08:10:47 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/15 14:10:49 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ CYAN		=	\e[96m
 NAME		=	push_swap
 SRC			=	src
 OBJ			=	obj
-SUB_DIR		=	tests
+SUB_DIR		=	tests parser
 
-SRC_FILE	=	main.c parser.c save.c check.c parser_save.c
+SRC_FILE	=	main.c
+PARSER_FILE	=	parser_save.c check_number.c save_number.c check_sort.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
+FILES		+=	$(foreach file, $(PARSER_FILE), $(SRC)/parser/$(file))
 FILES		+=	$(wildcard $(SRC)/tests/*.c)
 FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
 FILES		+=	$(wildcard $(SRC)/tests/integration/*.c)
@@ -79,15 +81,15 @@ release:		CFLAGS+=-g -fsanitize=address
 release:		fclean
 release:		$(NAME)
 
-val:			fclean
-val:			$(NAME)
-val:
-				@valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(argv)
+# val:			fclean
+# val:			$(NAME)
+# val:
+# @valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(argv)
 
-full-val:		fclean
-full-val:		$(NAME)
-full-val:
-				@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(argv)
+# full-val:		fclean
+# full-val:		$(NAME)
+# full-val:
+# @valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(argv)
 
 normi:
 				@echo "\n$(YELLOW)----------------------------------------"
