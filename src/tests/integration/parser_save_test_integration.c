@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 16:39:23 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/16 16:46:29 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,6 +205,29 @@ static int	test_multiple_number_with_space(void)
 // 	return (SUCCESS);
 // }
 
+static int	test_count_number(void)
+{
+	t_parser_save check;
+
+	check.argv[0] = "./push_swap";
+	check.argv[1] = "142";
+	check.argv[2] = "2  -9 8   4567";
+	check.argv[3] = "+05";
+	check.argv[4] = "\0";
+	check.stack.last = NULL;
+	check.stack.size = 0;
+	check.result = parser_save(check.argv, &check.stack);
+	ft_putlst_fd(check.stack.last, 1);
+	ft_lstclear(&check.stack.last);
+	if (check.result == SUCCESS && check.stack.size == 6)
+	{
+		return (print_status("parser_save", "test_count_number", "OK",
+		SUCCESS));
+	}
+	return (print_status("parser_save", "test_count_number",
+	"Ensure returns 0 if count numbers in stack", FAILURE));
+}
+
 int	parser_save_test_i(void)
 {
 	// if (test_empty_string())
@@ -225,5 +248,7 @@ int	parser_save_test_i(void)
 	// 	return (FAILURE);
 	// if (test_duplicates())
 	// 	return (FAILURE);
+	if (test_count_number())
+		return (FAILURE);
 	return (SUCCESS);
 }
