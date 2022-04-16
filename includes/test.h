@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/14 06:54:15 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:37:02 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,15 @@
 // Unit Test
 
 int	parser_save_test(void);
-
-int	check_isdigit(void);
-int	check_is_not_digit(void);
-int	check_isnumber(void);
-int	check_is_not_number(void);
-int	check_num_with_space(void);
-int	check_not_num_with_space(void);
-int	check_num_with_positive_sign(void);
-int	check_num_with_negative_sign(void);
-
-int	check_is_integer(void);
-int	check_max_integer(void);
-int	check_min_integer(void);
-
-int	check_save_number(void);
-int	check_save_number_with_space(void);
-int	check_save_max_int(void);
-int	check_save_min_int(void);
-int	check_save_greater_max_int(void);
-int	check_save_less_min_int(void);
-int	check_save_duplicate(void);
-
-int	check_sort_null(void);
-int	check_sort_one_number(void);
-int	check_sort_multiple_number(void);
-int	check_not_sort(void);
-
-int	print_status(char *filename, char *fname, char *message, int status);
+int	check_list_int(void);
+int	check_is_int(void);
+int	check_save(void);
+int	check_sort_test(void);
 
 // Test Integration
 int	parser_save_test_i(void);
+
+// Helper
+int	print_status(char *filename, char *fname, char *message, int status);
 
 #endif

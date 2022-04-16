@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 13:17:37 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:35:36 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_check_save
 	int		result;
 }		t_check_save;
 
-int	check_save_number(void)
+static int	check_save_number(void)
 {
 	t_check_save	check;
 
@@ -37,7 +37,7 @@ int	check_save_number(void)
 }
 
 // * The number after the tab is disregarded but not return an error
-int	check_save_number_with_space(void)
+static int	check_save_number_with_space(void)
 {
 	t_check_save	check;
 
@@ -55,7 +55,7 @@ int	check_save_number_with_space(void)
 	FAILURE));
 }
 
-int	check_save_max_int(void)
+static int	check_save_max_int(void)
 {
 	t_check_save	check;
 
@@ -74,7 +74,7 @@ int	check_save_max_int(void)
 	FAILURE));
 }
 
-int	check_save_min_int(void)
+static int	check_save_min_int(void)
 {
 	t_check_save	check;
 
@@ -93,7 +93,7 @@ int	check_save_min_int(void)
 	FAILURE));
 }
 
-int	check_save_greater_max_int(void)
+static int	check_save_greater_max_int(void)
 {
 	t_check_save	check;
 
@@ -110,7 +110,7 @@ int	check_save_greater_max_int(void)
 	FAILURE));
 }
 
-int	check_save_less_min_int(void)
+static int	check_save_less_min_int(void)
 {
 	t_check_save	check;
 
@@ -127,7 +127,7 @@ int	check_save_less_min_int(void)
 	FAILURE));
 }
 
-int	check_save_duplicate(void)
+static int	check_save_duplicate(void)
 {
 	t_check_save	check;
 
@@ -149,4 +149,23 @@ int	check_save_duplicate(void)
 	return (print_status("save_test.c", "check_save_duplicate",
 	"Ensure returns 1 if number is duplicate",
 	FAILURE));
+}
+
+int	check_save(void)
+{
+	if (check_save_number())
+		return (FAILURE);
+	if (check_save_number_with_space())
+		return (FAILURE);
+	if (check_save_max_int())
+		return (FAILURE);
+	if (check_save_min_int())
+		return (FAILURE);
+	if (check_save_greater_max_int())
+		return (FAILURE);
+	if (check_save_less_min_int())
+		return (FAILURE);
+	if (check_save_duplicate())
+		return (FAILURE);
+	return (SUCCESS);
 }

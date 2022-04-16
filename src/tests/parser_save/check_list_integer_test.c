@@ -18,7 +18,7 @@ typedef struct s_check_list_int
 	int		result;
 }		t_check_list_int;
 
-int	check_isdigit(void)
+static int	check_isdigit(void)
 {
 	t_check_list_int	check;
 
@@ -35,7 +35,7 @@ int	check_isdigit(void)
 	"Ensure returns 0 if list is integer", FAILURE));
 }
 
-int	check_is_not_digit(void)
+static int	check_is_not_digit(void)
 {
 	t_check_list_int	check;
 
@@ -52,7 +52,7 @@ int	check_is_not_digit(void)
 	"Ensure returns 1 if list containst other non-digit char", FAILURE));
 }
 
-int	check_isnumber(void)
+static int	check_isnumber(void)
 {
 	t_check_list_int	check;
 
@@ -69,7 +69,7 @@ int	check_isnumber(void)
 	"Ensure returns 0 if is number", FAILURE));
 }
 
-int	check_is_not_number(void)
+static int	check_is_not_number(void)
 {
 	t_check_list_int	check;
 
@@ -87,7 +87,7 @@ int	check_is_not_number(void)
 	FAILURE));
 }
 
-int	check_num_with_space(void)
+static int	check_num_with_space(void)
 {
 	t_check_list_int	check;
 
@@ -104,7 +104,7 @@ int	check_num_with_space(void)
 	"Ensure returns 0 if number in format string with spaces", FAILURE));
 }
 
-int	check_not_num_with_space(void)
+static int	check_not_num_with_space(void)
 {
 	t_check_list_int	check;
 
@@ -122,7 +122,7 @@ int	check_not_num_with_space(void)
 	"Ensure returns 1 if list containst other non-number char", FAILURE));
 }
 
-int	check_num_with_positive_sign(void)
+static int	check_num_with_positive_sign(void)
 {
 	t_check_list_int	check;
 
@@ -141,7 +141,7 @@ int	check_num_with_positive_sign(void)
 	FAILURE));
 }
 
-int	check_num_with_negative_sign(void)
+static int	check_num_with_negative_sign(void)
 {
 	t_check_list_int	check;
 
@@ -158,4 +158,25 @@ int	check_num_with_negative_sign(void)
 	"check_num_with_negative_sign",
 	"Ensure returns 0 if list containst number with negative sign",
 	FAILURE));
+}
+
+int	check_list_int(void)
+{
+	if (check_isdigit())
+		return (FAILURE);
+	if (check_is_not_digit())
+		return (FAILURE);
+	if (check_isnumber())
+		return (FAILURE);
+	if (check_is_not_number())
+		return (FAILURE);
+	if (check_num_with_space())
+		return (FAILURE);
+	if (check_not_num_with_space())
+		return (FAILURE);
+	if (check_num_with_positive_sign())
+		return (FAILURE);
+	if (check_num_with_negative_sign())
+		return (FAILURE);
+	return (SUCCESS);
 }
