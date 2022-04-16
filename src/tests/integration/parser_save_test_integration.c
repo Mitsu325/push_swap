@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 13:24:51 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/16 16:39:23 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_parser_save
 // 	check.argv[2] = "\0";
 // 	check.stack.last = NULL;
 // 	check.stack.size = 0;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
 // 		return (print_status("parser_save", "test_empty_string",
@@ -46,7 +46,7 @@ typedef struct s_parser_save
 // 	check.argv[2] = "\0";
 // 	check.stack.last = NULL;
 // 	check.stack.size = 0;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
 // 		return (print_status("parser_save", "test_one_number",
@@ -112,7 +112,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[4] = "\0";
 // 	check.stack.last = NULL;
 // 	check.stack.size = 0;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	// ft_putlst_fd(check.last, 1);
 // 	// ft_lstclear(&check.last);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
@@ -134,7 +134,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[4] = "\0";
 // 	check.stack.last = NULL;
 // 	check.stack.size = 0;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
@@ -155,7 +155,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[4] = "\0";
 // 	check.stack.last = NULL;
 // 	check.stack.size = 0;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
@@ -175,7 +175,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[3] = "1";
 // 	check.argv[4] = "\0";
 // 	check.stack.last = NULL;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
@@ -195,7 +195,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[3] = "1";
 // 	check.argv[4] = "\0";
 // 	check.stack.last = NULL;
-// 	check.result = parser_save(check.argv, &check.stack.last);
+// 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
