@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:24:40 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/18 05:46:19 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/18 06:37:43 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 typedef struct s_check_swap
 {
 	t_list	*last;
-	int		result;
 }		t_check_swap;
 
 static int	check_no_elements(void)
