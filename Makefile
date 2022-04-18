@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/15 22:20:26 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/16 18:10:16 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,20 +19,24 @@ CYAN		=	\e[96m
 NAME		=	push_swap
 SRC			=	src
 OBJ			=	obj
-SUB_DIR		=	tests parser
+SUB_DIR		=	tests parser operation
 
 SRC_FILE	=	main.c
 PARSER_FILE	=	parser_save.c check_number.c save_number.c check_sort.c
+OPS_FILE	=	swap.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 FILES		+=	$(foreach file, $(PARSER_FILE), $(SRC)/parser/$(file))
+FILES		+=	$(foreach file, $(OPS_FILE), $(SRC)/operation/$(file))
 FILES		+=	$(wildcard $(SRC)/tests/*.c)
 FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
+FILES		+=	$(wildcard $(SRC)/tests/operation/*.c)
 FILES		+=	$(wildcard $(SRC)/tests/integration/*.c)
 
 OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
 OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
-TEST_OBJ_DIR	=	obj/tests/parser_save obj/tests/integration
+TEST_OBJ_DIR	=	obj/tests/parser_save obj/tests/operation \
+					obj/tests/integration
 
 HEADER		=	-I includes -I $(LIBFT_DIR)/includes
 LIBFT_DIR	=	libft
