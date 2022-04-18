@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:24:37 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 18:01:18 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/18 06:32:45 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	operation_test(void)
 {
 	if (swap_test())
+		return (FAILURE);
+	if (push_test())
 		return (FAILURE);
 	return (SUCCESS);
 }
