@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 18:05:26 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/18 06:43:45 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	is_integer(long int number);
 int	check_sort(t_list *last);
 
 void	swap(t_list **last);
+void	push(t_list **last_to, t_list **last_from);
 
 #endif
