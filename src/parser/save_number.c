@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 16:46:06 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/19 07:15:29 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,22 @@ static int	check_duplicate(t_list **last, long int data)
 	return (SUCCESS);
 }
 
+static int	check_consecutive_sign(char *str)
+{
+	int	count;
+
+	count = 0;
+	while (*str != '\0')
+	{
+		if (*str == '+' || *str == '-')
+			count++;
+		if (count > 1)
+			return (FAILURE);
+		str++;
+	}
+	return (SUCCESS);
+}
+
 int	save_number(t_stack *stack, char *number)
 {
 	long int	data;
@@ -62,6 +78,8 @@ int	save_number(t_stack *stack, char *number)
 	i = 0;
 	while (*(split_num + i))
 	{
+		if (check_consecutive_sign(*(split_num + i)))
+			return (clean_split(split_num, FAILURE));
 		data = ft_atoi(*(split_num + i));
 		if (is_integer(data))
 			return (clean_split(split_num, FAILURE));
