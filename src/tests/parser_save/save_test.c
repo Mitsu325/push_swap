@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 17:35:36 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/19 07:19:08 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,60 @@ static int	check_save_duplicate(void)
 	FAILURE));
 }
 
+static int	check_save_consecutive_sign_first(void)
+{
+	t_check_save	check;
+
+	check.number = "----325";
+	check.stack.last = NULL;
+	check.result = save_number(&check.stack, check.number);
+	ft_lstclear(&check.stack.last);
+	if (check.result == FAILURE)
+	{
+		return (print_status("save_test.c", "check_save_consecutive_sign_first",
+		"OK", SUCCESS));
+	}
+	return (print_status("save_test.c", "check_save_consecutive_sign_first",
+	"Ensure returns 1 if number is consecutive at the beginning",
+	FAILURE));
+}
+
+static int	check_save_consecutive_sign_middle(void)
+{
+	t_check_save	check;
+
+	check.number = "32-+5";
+	check.stack.last = NULL;
+	check.result = save_number(&check.stack, check.number);
+	ft_lstclear(&check.stack.last);
+	if (check.result == FAILURE)
+	{
+		return (print_status("save_test.c", "check_save_consecutive_sign_middle",
+		"OK", SUCCESS));
+	}
+	return (print_status("save_test.c", "check_save_consecutive_sign_middle",
+	"Ensure returns 1 if number is consecutive in the middle",
+	FAILURE));
+}
+
+static int	check_save_consecutive_sign_last(void)
+{
+	t_check_save	check;
+
+	check.number = "325--";
+	check.stack.last = NULL;
+	check.result = save_number(&check.stack, check.number);
+	ft_lstclear(&check.stack.last);
+	if (check.result == FAILURE)
+	{
+		return (print_status("save_test.c", "check_save_consecutive_sign_last",
+		"OK", SUCCESS));
+	}
+	return (print_status("save_test.c", "check_save_consecutive_sign_last",
+	"Ensure returns 1 if number is consecutive at the end",
+	FAILURE));
+}
+
 int	check_save(void)
 {
 	if (check_save_number())
@@ -166,6 +220,12 @@ int	check_save(void)
 	if (check_save_less_min_int())
 		return (FAILURE);
 	if (check_save_duplicate())
+		return (FAILURE);
+	if (check_save_consecutive_sign_first())
+		return (FAILURE);
+	if (check_save_consecutive_sign_middle())
+		return (FAILURE);
+	if (check_save_consecutive_sign_last())
 		return (FAILURE);
 	return (SUCCESS);
 }
