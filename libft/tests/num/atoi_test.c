@@ -51,12 +51,12 @@ Test(atoi, signal) {
 	str = "127+-098";
 	result = ft_atoi(str);
 	expect = atoi(str);
-	cr_expect_eq(result, expect, "Ensure consecutive signal handling");
+	cr_expect_eq(result, expect, "Ensure consecutive signal handling. Disregards the numbers after the sign");
 }
 
 Test(atoi, negative_signal) {
 	str = "--127098";
 	result = ft_atoi(str);
 	expect = atoi(str);
-	cr_expect_eq(result, expect, "Ensure consecutive negative signal handling");
+	cr_expect_eq(result, expect, "Ensure consecutive negative signal handling. Disregards the numbers after the sign or return 0.");
 }
