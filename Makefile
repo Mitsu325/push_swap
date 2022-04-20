@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/18 06:44:04 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/20 05:14:56 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SUB_DIR		=	tests parser operation
 
 SRC_FILE	=	main.c
 PARSER_FILE	=	parser_save.c check_number.c save_number.c check_sort.c
-OPS_FILE	=	swap.c push.c
+OPS_FILE	=	swap.c push.c rotate.c
 
 FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
 FILES		+=	$(foreach file, $(PARSER_FILE), $(SRC)/parser/$(file))
