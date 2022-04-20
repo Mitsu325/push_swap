@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:24:37 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/20 05:13:46 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/20 06:14:07 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	operation_test(void)
 	if (push_test())
 		return (FAILURE);
 	if (rotate_test())
+		return (FAILURE);
+	if (reverse_rotate_test())
 		return (FAILURE);
 	return (SUCCESS);
 }

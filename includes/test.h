@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/20 05:13:28 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/20 06:13:59 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	operation_test(void);
 int	swap_test(void);
 int	push_test(void);
 int	rotate_test(void);
+int	reverse_rotate_test(void);
 
 // Test Integration
 int	parser_save_test_i(void);
