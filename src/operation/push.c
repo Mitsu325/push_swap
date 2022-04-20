@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/18 07:35:11 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:30:35 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_list	*remove_first_node(t_list **last)
 		*last = NULL;
 	else
 		(*last)->next = (*last)->next->next;
-	return first;
+	return (first);
 }
 
 static void	insert_first_node(t_list **last, t_list *node)

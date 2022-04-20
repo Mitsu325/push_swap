@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/20 06:15:21 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:30:21 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct s_stack
 	int		size;
 }		t_stack;
 
-int	parser_save(char **argv, t_stack *stack);
-int	check_number(char **numbers);
-int	save_number(t_stack *stack, char *number);
-int	is_integer(long int number);
-int	check_sort(t_list *last);
+int		parser_save(char **argv, t_stack *stack);
+int		check_number(char **numbers);
+int		save_number(t_stack *stack, char *number);
+int		is_integer(long int number);
+int		check_sort(t_list *last);
 
 void	swap(t_list **last);
 void	push(t_list **last_to, t_list **last_from);
