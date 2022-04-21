@@ -6,11 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/18 06:16:50 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/21 15:24:21 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	swap(t_list **last)
 {
@@ -19,6 +20,11 @@ void	swap(t_list **last)
 
 	if (*last == NULL || *last == (*last)->next)
 		return ;
+	if (*last == (*last)->next->next)
+	{
+		*last = (*last)->next;
+		return ;
+	}
 	head = (*last)->next;
 	temp = head->next->next;
 	(*last)->next = head->next;

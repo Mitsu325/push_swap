@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:24:40 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/18 06:37:43 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/21 15:23:00 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,26 @@ static int	check_swap_top(void)
 	"Ensure swap the first two elements at the top of stack", FAILURE));
 }
 
+static int	check_swap_two_numbers(void)
+{
+	t_check_swap	check;
+
+	check.last = NULL;
+	ft_lstadd_back(&check.last, 3);
+	ft_lstadd_back(&check.last, 1);
+	swap(&check.last);
+	ft_putlst_fd(check.last, 1);
+	if (check.last->next->data == 1)
+	{
+		ft_lstclear(&check.last);
+		return (print_status("swap_test.c", "check_swap_two_numbers", "OK",
+		SUCCESS));
+	}
+	ft_lstclear(&check.last);
+	return (print_status("swap_test.c", "check_swap_two_numbers",
+	"Ensure swap the two elements in the stack", FAILURE));
+}
+
 int	swap_test(void)
 {
 	if (check_no_elements())
@@ -78,6 +98,8 @@ int	swap_test(void)
 	if (check_one_element())
 		return (FAILURE);
 	if (check_swap_top())
+		return (FAILURE);
+	if (check_swap_two_numbers())
 		return (FAILURE);
 	return (SUCCESS);
 }
