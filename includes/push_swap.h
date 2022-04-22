@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 05:33:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:26:57 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 
 typedef struct s_stack
 {
-	t_list	*last;
+	t_list	*last_a;
+	t_list	*last_b;
 	int		size;
 }		t_stack;
 

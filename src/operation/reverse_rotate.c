@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 05:33:23 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:34:21 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	reverse_rotate(t_list **last)
 
 int	rra(t_stack *stack)
 {
-	reverse_rotate(&stack->last);
+	reverse_rotate(&stack->last_a);
 	ft_putstr_fd("rra\n", 1);
 	return (SUCCESS);
 }

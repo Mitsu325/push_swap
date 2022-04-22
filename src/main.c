@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/20 08:27:22 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:27:40 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ int	main(int argc, char **argv)
 		return (FAILURE);
 	if (parser_test(argv))
 		return (FAILURE);
-	stack.last = NULL;
+	stack.last_a = NULL;
+	stack.last_b = NULL;
 	stack.size = 0;
 	parser_save(argv, &stack);
-	ft_putlst_fd(stack.last, 1);
-	ft_lstclear(&stack.last);
+	ft_lstclear(&stack.last_a);
+	ft_lstclear(&stack.last_b);
 	return (SUCCESS);
 }

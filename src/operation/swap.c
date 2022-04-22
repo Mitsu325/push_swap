@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/21 15:30:33 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:34:32 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	swap(t_list **last)
 
 int	sa(t_stack *stack)
 {
-	swap(&stack->last);
+	swap(&stack->last_a);
 	ft_putstr_fd("sa\n", 1);
 	return (SUCCESS);
 }

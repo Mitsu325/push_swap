@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:10 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/19 07:19:08 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:32:29 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	check_save_number(void)
 	t_check_save	check;
 
 	check.number = "0";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_number", "OK",
@@ -42,9 +42,9 @@ static int	check_save_number_with_space(void)
 	t_check_save	check;
 
 	check.number = "0  4        34	123";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_number_with_space",
@@ -60,10 +60,10 @@ static int	check_save_max_int(void)
 	t_check_save	check;
 
 	check.number = "2147483647";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_putlst_fd(check.stack.last, 1);
-	ft_lstclear(&check.stack.last);
+	ft_putlst_fd(check.stack.last_a, 1);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_max_int",
@@ -79,10 +79,10 @@ static int	check_save_min_int(void)
 	t_check_save	check;
 
 	check.number = "-2147483648";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_putlst_fd(check.stack.last, 1);
-	ft_lstclear(&check.stack.last);
+	ft_putlst_fd(check.stack.last_a, 1);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == SUCCESS)
 	{
 		return (print_status("save_test.c", "check_save_min_int",
@@ -98,7 +98,7 @@ static int	check_save_greater_max_int(void)
 	t_check_save	check;
 
 	check.number = "+2147483650";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
 	if (check.result == FAILURE)
 	{
@@ -115,7 +115,7 @@ static int	check_save_less_min_int(void)
 	t_check_save	check;
 
 	check.number = "-2147483650";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
 	if (check.result == FAILURE)
 	{
@@ -132,7 +132,7 @@ static int	check_save_duplicate(void)
 	t_check_save	check;
 
 	check.number = "3";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
 	check.number = "9";
 	check.result = save_number(&check.stack, check.number);
@@ -140,7 +140,7 @@ static int	check_save_duplicate(void)
 	check.result = save_number(&check.stack, check.number);
 	check.number = "9";
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_duplicate",
@@ -156,9 +156,9 @@ static int	check_save_consecutive_sign_first(void)
 	t_check_save	check;
 
 	check.number = "----325";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_consecutive_sign_first",
@@ -174,9 +174,9 @@ static int	check_save_consecutive_sign_middle(void)
 	t_check_save	check;
 
 	check.number = "32-+5";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_consecutive_sign_middle",
@@ -192,9 +192,9 @@ static int	check_save_consecutive_sign_last(void)
 	t_check_save	check;
 
 	check.number = "325--";
-	check.stack.last = NULL;
+	check.stack.last_a = NULL;
 	check.result = save_number(&check.stack, check.number);
-	ft_lstclear(&check.stack.last);
+	ft_lstclear(&check.stack.last_a);
 	if (check.result == FAILURE)
 	{
 		return (print_status("save_test.c", "check_save_consecutive_sign_last",

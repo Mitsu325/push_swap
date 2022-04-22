@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/16 13:30:03 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:33:50 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ int	parser_save(char **argv, t_stack *stack)
 	int	i;
 
 	if (check_number(++argv))
-		exit_safe(&stack->last, FAILURE);
+		exit_safe(&stack->last_a, FAILURE);
 	i = 0;
 	while (*(argv + i) && **(argv + i))
 	{
 		if (save_number(stack, *(argv + i)))
-			exit_safe(&stack->last, FAILURE);
+			exit_safe(&stack->last_a, FAILURE);
 		i++;
 	}
-	if (stack->last == NULL || check_sort(stack->last) == SUCCESS)
-		exit_safe(&stack->last, SUCCESS);
+	if (stack->last_a == NULL || check_sort(stack->last_a) == SUCCESS)
+		exit_safe(&stack->last_a, SUCCESS);
 	return (SUCCESS);
 }

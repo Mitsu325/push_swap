@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:15:05 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 05:47:52 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:39:58 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	sort_three_numbers(t_stack *stack)
 	t_list	*second;
 	t_list	*third;
 
-	first = stack->last->next;
-	second = stack->last->next->next;
-	third = stack->last;
+	first = stack->last_a->next;
+	second = stack->last_a->next->next;
+	third = stack->last_a;
 	if (second->data > third->data)
 	{
 		if (first->data < second->data && first->data > third->data)

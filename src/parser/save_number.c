@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/19 07:15:29 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 06:34:05 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	save_number(t_stack *stack, char *number)
 		data = ft_atoi(*(split_num + i));
 		if (is_integer(data))
 			return (clean_split(split_num, FAILURE));
-		if (check_duplicate(&stack->last, data))
+		if (check_duplicate(&stack->last_a, data))
 			return (clean_split(split_num, FAILURE));
-		if (ft_lstadd_back(&stack->last, data))
+		if (ft_lstadd_back(&stack->last_a, data))
 			return (clean_split(split_num, FAILURE));
 		i++;
 	}
