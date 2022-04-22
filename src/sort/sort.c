@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:15:05 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 05:40:52 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 05:47:52 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	sort_three_numbers(t_stack *stack)
 		sa(stack);
 		if (first->data < second->data)
 			return (ra(stack));
-		else
-			return (rra(stack));
+		return (rra(stack));
 	}
 	else if (first->data < third->data)
 		return (sa(stack));
