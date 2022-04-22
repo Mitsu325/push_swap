@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/21 15:30:51 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/22 05:33:54 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	swap(t_list **last);
 int		sa(t_stack *stack);
 void	push(t_list **last_to, t_list **last_from);
 void	rotate(t_list **last);
+int		ra(t_stack *stack);
 void	reverse_rotate(t_list **last);
+int		rra(t_stack *stack);
 
 int		sort(t_stack *stack);
 
