@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/24 18:36:38 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:44:36 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	reverse_rotate(t_list **last);
 int		rra(t_stack *stack);
 
 int		sort(t_stack *stack);
+int		sort_three_numbers(t_stack *stack);
+int		sort_up_to_five_numbers(t_stack *stack);
+
 int		find_smallest_num_node(t_list *last);
 void	push_smallest_number_to_b(t_stack *stack, int size_stack);
 
