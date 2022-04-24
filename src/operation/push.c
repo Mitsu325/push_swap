@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/20 11:30:35 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:09:26 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,18 @@ void	push(t_list **last_to, t_list **last_from)
 		return ;
 	first = remove_first_node(last_from);
 	insert_first_node(last_to, first);
+}
+
+int	pa(t_stack *stack)
+{
+	push(&stack->last_a, &stack->last_b);
+	ft_putstr_fd("pa\n", 1);
+	return (SUCCESS);
+}
+
+int	pb(t_stack *stack)
+{
+	push(&stack->last_b, &stack->last_a);
+	ft_putstr_fd("pb\n", 1);
+	return (SUCCESS);
 }
