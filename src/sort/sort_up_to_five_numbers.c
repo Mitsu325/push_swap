@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:43:12 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/24 18:44:00 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/25 05:56:40 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,6 @@ void	push_smallest_number_to_b(t_stack *stack, int size_stack)
 
 void	push_smallest_number_to_a(t_stack *stack)
 {
-	t_list	*temp;
-
-	temp = stack->last_b;
-	if (temp == temp->next)
-		pa(stack);
 	while (stack->last_b != NULL)
 		pa(stack);
 }
