@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:43:12 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/25 05:56:40 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 05:48:37 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,12 @@ void	move_smallest_number_to_top(t_stack *stack, int half_size)
 			ra(stack);
 			smallest_num_index--;
 		}
+		return ;
 	}
-	else
+	while (smallest_num_index != stack->size)
 	{
-		while (smallest_num_index != stack->size)
-		{
-			rra(stack);
-			smallest_num_index++;
-		}
+		rra(stack);
+		smallest_num_index++;
 	}
 }
 
