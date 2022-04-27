@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 06:33:50 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:26:48 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	parser_save(char **argv, t_stack *stack)
 	}
 	if (stack->last_a == NULL || check_sort(stack->last_a) == SUCCESS)
 		exit_safe(&stack->last_a, SUCCESS);
+	stack->size_a = stack->full_size;
 	return (SUCCESS);
 }

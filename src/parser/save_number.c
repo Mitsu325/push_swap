@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 06:34:05 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:19:04 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int	save_number(t_stack *stack, char *number)
 			return (clean_split(split_num, FAILURE));
 		i++;
 	}
-	stack->size += i;
+	stack->full_size += i;
 	return (clean_split(split_num, SUCCESS));
 }
