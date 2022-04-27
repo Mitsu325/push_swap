@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:20:33 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 06:31:25 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:21:44 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	test_sort_three_number_sa_ra(void)
 {
 	t_stack	stack;
 
-	stack.size = 3;
+	stack.full_size = 3;
 	stack.last_a = NULL;
 	ft_lstadd_back(&stack.last_a, -1);
 	ft_lstadd_back(&stack.last_a, 10);
@@ -39,7 +39,7 @@ static int	test_sort_three_number_sa(void)
 {
 	t_stack	stack;
 
-	stack.size = 3;
+	stack.full_size = 3;
 	stack.last_a = NULL;
 	ft_lstadd_back(&stack.last_a, 3);
 	ft_lstadd_back(&stack.last_a, -1);
@@ -62,7 +62,7 @@ static int	test_sort_three_number_rra(void)
 {
 	t_stack	stack;
 
-	stack.size = 3;
+	stack.full_size = 3;
 	stack.last_a = NULL;
 	ft_lstadd_back(&stack.last_a, 3);
 	ft_lstadd_back(&stack.last_a, 10);
@@ -85,7 +85,7 @@ static int	test_sort_three_number_ra(void)
 {
 	t_stack	stack;
 
-	stack.size = 3;
+	stack.full_size = 3;
 	stack.last_a = NULL;
 	ft_lstadd_back(&stack.last_a, 10);
 	ft_lstadd_back(&stack.last_a, -1);
@@ -108,7 +108,7 @@ static int	test_sort_three_number_sa_rra(void)
 {
 	t_stack	stack;
 
-	stack.size = 3;
+	stack.full_size = 3;
 	stack.last_a = NULL;
 	ft_lstadd_back(&stack.last_a, 10);
 	ft_lstadd_back(&stack.last_a, 3);

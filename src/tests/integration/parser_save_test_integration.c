@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 06:33:12 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:20:16 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_parser_save
 // 	check.argv[1] = " ";
 // 	check.argv[2] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
@@ -45,7 +45,7 @@ typedef struct s_parser_save
 // 	check.argv[1] = "142";
 // 	check.argv[2] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
 // 	{
@@ -65,7 +65,7 @@ static int	test_multiple_number(void)
 	check.argv[3] = "+05";
 	check.argv[4] = "\0";
 	check.stack.last_a = NULL;
-	check.stack.size = 0;
+	check.stack.full_size = 0;
 	check.result = parser_save(check.argv, &check.stack);
 	ft_putlst_fd(check.stack.last_a, 1);
 	ft_lstclear(&check.stack.last_a);
@@ -88,7 +88,7 @@ static int	test_multiple_number_with_space(void)
 	check.argv[3] = "+05";
 	check.argv[4] = "\0";
 	check.stack.last_a = NULL;
-	check.stack.size = 0;
+	check.stack.full_size = 0;
 	check.result = parser_save(check.argv, &check.stack);
 	ft_putlst_fd(check.stack.last_a, 1);
 	ft_lstclear(&check.stack.last_a);
@@ -111,7 +111,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[3] = "+051";
 // 	check.argv[4] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	// ft_putlst_fd(check.last, 1);
 // 	// ft_lstclear(&check.last);
@@ -133,7 +133,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[3] = "2";
 // 	check.argv[4] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last_a);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
@@ -154,7 +154,7 @@ static int	test_multiple_number_with_space(void)
 // 	check.argv[3] = "1";
 // 	check.argv[4] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_lstclear(&check.stack.last_a);
 // 	if (check.result == FAILURE || check.result == SUCCESS)
@@ -215,11 +215,11 @@ static int	test_count_number(void)
 	check.argv[3] = "+05";
 	check.argv[4] = "\0";
 	check.stack.last_a = NULL;
-	check.stack.size = 0;
+	check.stack.full_size = 0;
 	check.result = parser_save(check.argv, &check.stack);
 	ft_putlst_fd(check.stack.last_a, 1);
 	ft_lstclear(&check.stack.last_a);
-	if (check.result == SUCCESS && check.stack.size == 6)
+	if (check.result == SUCCESS && check.stack.full_size == 6)
 	{
 		return (print_status("parser_save", "test_count_number", "OK",
 		SUCCESS));
@@ -238,7 +238,7 @@ static int	test_count_number(void)
 // 	check.argv[3] = "+-05";
 // 	check.argv[4] = "\0";
 // 	check.stack.last_a = NULL;
-// 	check.stack.size = 0;
+// 	check.stack.full_size = 0;
 // 	check.result = parser_save(check.argv, &check.stack);
 // 	ft_putlst_fd(check.stack.last_a, 1);
 // 	ft_lstclear(&check.stack.last_a);

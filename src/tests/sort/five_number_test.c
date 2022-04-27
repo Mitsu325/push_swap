@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:20:33 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/24 18:38:53 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:51:44 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static int	test_find_smallest_num_node(void)
 	t_stack	stack;
 	int		smallest_num_index;
 
-	stack.size = 5;
+	stack.full_size = 5;
+	stack.size_a = stack.full_size;
 	stack.last_a = NULL;
 	stack.last_b = NULL;
 	ft_lstadd_back(&stack.last_a, 1);
@@ -41,7 +42,8 @@ static int	test_push_b_lower_values(void)
 {
 	t_stack	stack;
 
-	stack.size = 5;
+	stack.full_size = 5;
+	stack.size_a = stack.full_size;
 	stack.last_a = NULL;
 	stack.last_b = NULL;
 	ft_lstadd_back(&stack.last_a, 8);
@@ -68,7 +70,8 @@ static int	test_sort_four_numbers(void)
 {
 	t_stack	stack;
 
-	stack.size = 4;
+	stack.full_size = 4;
+	stack.size_a = stack.full_size;
 	stack.last_a = NULL;
 	stack.last_b = NULL;
 	ft_lstadd_back(&stack.last_a, 8);
@@ -92,13 +95,14 @@ static int	test_sort_five_numbers(void)
 {
 	t_stack	stack;
 
-	stack.size = 5;
+	stack.full_size = 5;
+	stack.size_a = stack.full_size;
 	stack.last_a = NULL;
 	stack.last_b = NULL;
-	ft_lstadd_back(&stack.last_a, 8);
+	ft_lstadd_back(&stack.last_a, 2);
 	ft_lstadd_back(&stack.last_a, 1);
 	ft_lstadd_back(&stack.last_a, 20);
-	ft_lstadd_back(&stack.last_a, 7);
+	ft_lstadd_back(&stack.last_a, 202);
 	ft_lstadd_back(&stack.last_a, -3);
 	sort(&stack);
 	ft_putlst_fd(stack.last_a, 1);
