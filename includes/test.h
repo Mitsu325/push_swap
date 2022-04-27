@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 05:24:28 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/26 05:50:51 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/27 07:18:01 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	two_number_test(void);
 int	three_number_test(void);
 int	five_number_test(void);
 int	ten_number_test(void);
+int	sort_long_test(void);
 
 // Test Integration
 int	parser_save_test_i(void);
