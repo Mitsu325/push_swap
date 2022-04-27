@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:43:12 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/27 05:05:24 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/27 07:06:51 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	move_smallest_number_to_top(t_stack *stack)
 	int	half_size;
 
 	smallest_num_index = find_smallest_num_node(stack->last_a);
+	if (smallest_num_index == 1)
+	{
+		sa(stack);
+		return ;
+	}
 	half_size = (stack->size_a / 2) + (stack->size_a % 2);
 	if (smallest_num_index < half_size)
 	{
