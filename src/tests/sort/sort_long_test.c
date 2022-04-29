@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:20:33 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/28 15:05:17 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/29 07:29:56 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,11 @@ static int	test_partition_a_and_push_b(void)
 
 	set_twenty_numbers(&stack);
 	partition_a_and_push_b(&stack);
-	printf("==============\n");
-	ft_putlst_fd(stack.last_a, 1);
-	printf("==============\n");
-	ft_putlst_fd(stack.last_b, 1);
-	printf("==============\n");
+	// printf("==============\n");
+	// ft_putlst_fd(stack.last_a, 1);
+	// printf("==============\n");
+	// ft_putlst_fd(stack.last_b, 1);
+	// printf("==============\n");
 	if (stack.size_a == ((stack.full_size / 4) - 1))
 	{
 		ft_lstclear(&stack.last_a);
@@ -150,6 +150,31 @@ static int	test_partition_a_and_push_b(void)
 	"Ensure partition stack a and push smallest number to b", FAILURE));
 }
 
+static int	test_sort_number_remain_a(void)
+{
+	t_stack	stack;
+
+	set_twenty_numbers(&stack);
+	partition_a_and_push_b(&stack);
+	sort_number_remain_a(&stack);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_a, 1);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_b, 1);
+	printf("==============\n");
+	if (check_sort(stack.last_a) == SUCCESS)
+	{
+		ft_lstclear(&stack.last_a);
+		ft_lstclear(&stack.last_b);
+		return (print_status("sort_long_test.c", "test_sort_number_remain_a",
+		"OK", SUCCESS));
+	}
+	ft_lstclear(&stack.last_a);
+	ft_lstclear(&stack.last_b);
+	return (print_status("sort_long_test.c", "test_sort_number_remain_a",
+	"Ensure sort of the remaining numbers in the stack a", FAILURE));
+}
+
 int	sort_long_test(void)
 {
 	if (test_num_format_array())
@@ -157,6 +182,8 @@ int	sort_long_test(void)
 	if (test_sort_array())
 		return (FAILURE);
 	if (test_partition_a_and_push_b())
+		return (FAILURE);
+	if (test_sort_number_remain_a())
 		return (FAILURE);
 	return (SUCCESS);
 }
