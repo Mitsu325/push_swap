@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 07:13:21 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/29 04:58:22 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/29 07:40:07 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,19 @@ void	partition_a_and_push_b(t_stack *stack)
 		i++;
 	}
 	free(sorted_number);
+}
+
+void	sort_number_remain_a(t_stack *stack)
+{
+	int	size_stack;
+	int	num_pushed_b;
+
+	size_stack = 3;
+	num_pushed_b = stack->size_a - size_stack;
+	push_smallest_number_to_b(stack, size_stack);
+	if (check_sort(stack->last_a))
+		sort_three_numbers(stack);
+	push_smallest_number_to_a(stack, num_pushed_b);
 }
 
 // int	sort_up_to_one_hundred_numbers(t_stack *stack)

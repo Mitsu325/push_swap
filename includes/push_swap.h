@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/28 06:34:37 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/29 07:41:08 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int		sort_up_to_one_hundred_numbers(t_stack *stack);
 int		*save_numbers_in_array(t_stack *stack);
 void	quicksort(int *num, int low, int high);
 void	partition_a_and_push_b(t_stack *stack);
+void	sort_number_remain_a(t_stack *stack);
+void	push_smallest_number_to_a(t_stack *stack, int num_pushed_b);
 
 int		find_smallest_num_node(t_list *last);
 void	push_smallest_number_to_b(t_stack *stack, int size_stack);
