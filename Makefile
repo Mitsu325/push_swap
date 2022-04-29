@@ -6,9 +6,11 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/27 07:12:58 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/29 06:59:29 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+## COLORS ##
 
 DEFAULT		=	\e[39m
 GREEN		=	\e[92m
@@ -16,97 +18,145 @@ YELLOW		=	\e[93m
 MAGENTA		=	\e[95m
 CYAN		=	\e[96m
 
-NAME		=	push_swap
-SRC			=	src
-OBJ			=	obj
-SUB_DIR		=	tests parser operation sort
+# **************************************************************************** #
 
-SRC_FILE	=	main.c
-PARSER_FILE	=	parser_save.c check_number.c save_number.c check_sort.c
-OPS_FILE	=	swap.c push.c rotate.c reverse_rotate.c
-SORT_FILE	=	sort.c sort_three_numbers.c sort_up_to_five_numbers.c \
-				sort_up_to_one_hundred_numbers.c
+NAME := push_swap
 
-FILES		=	$(foreach file, $(SRC_FILE), $(SRC)/$(file))
-FILES		+=	$(foreach file, $(PARSER_FILE), $(SRC)/parser/$(file))
-FILES		+=	$(foreach file, $(OPS_FILE), $(SRC)/operation/$(file))
-FILES		+=	$(foreach file, $(SORT_FILE), $(SRC)/sort/$(file))
-FILES		+=	$(wildcard $(SRC)/tests/*.c)
-FILES		+=	$(wildcard $(SRC)/tests/parser_save/*.c)
-FILES		+=	$(wildcard $(SRC)/tests/operation/*.c)
-FILES		+=	$(wildcard $(SRC)/tests/integration/*.c)
-FILES		+=	$(wildcard $(SRC)/tests/sort/*.c)
+# LIBRARY #
 
-OBJ_DIR		=	$(foreach dir, $(SUB_DIR), $(addprefix $(OBJ)/, $(dir)))
-OBJS		=	$(subst $(SRC), $(OBJ), $(FILES:.c=.o))
-TEST_OBJ_DIR	=	obj/tests/parser_save obj/tests/operation \
-					obj/tests/integration obj/tests/sort
+LIBFT := libft.a
+LIBFT_DIR := ./libft/
+HEADER := -I includes -I $(LIBFT_DIR)includes
+LIB_FLAGS := -L $(LIBFT_DIR) -lft
 
-HEADER		=	-I includes -I $(LIBFT_DIR)/includes
-LIBFT_DIR	=	libft
-LIBFT		=	$(LIBFT_DIR)/libft.a
-LIB_FLAGS	=	-L $(LIBFT_DIR) -lft
+# COMPILATION #
 
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -rf
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
 
-all:			$(NAME)
+# DELETE #
 
-$(NAME):		make_obj $(LIBFT) $(OBJS)
-				@echo "\n$(CYAN)----------------------------------------"
-				@echo "------------ MAKE PUSH SWAP ------------"
-				@echo "----------------------------------------\n$(DEFAULT)"
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB_FLAGS)
+RM := rm -rf
 
-$(OBJ)/%.o:		$(SRC)/%.c
-				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+# DIRECTORIES #
 
-make_obj:
-				@mkdir -p $(OBJ) $(OBJ_DIR) $(TEST_OBJ_DIR)
+SRC_DIR := ./src/
+
+VPATH := $(SRC_DIR)\
+		$(SRC_DIR)parser\
+		$(SRC_DIR)operation\
+		$(SRC_DIR)sort\
+		$(SRC_DIR)tests\
+		$(SRC_DIR)tests/integration\
+		$(SRC_DIR)tests/operation\
+		$(SRC_DIR)tests/parser_save\
+		$(SRC_DIR)tests/sort
+
+# FILES #
+
+SRCS := main.c\
+		parser_save.c\
+		check_number.c\
+		save_number.c\
+		check_sort.c\
+		swap.c\
+		push.c\
+		rotate.c\
+		reverse_rotate.c\
+		sort.c\
+		sort_three_numbers.c\
+		sort_up_to_five_numbers.c\
+		sort_up_to_one_hundred_numbers.c\
+		helper_test.c\
+		parser_save_test.c\
+		save_test.c\
+		is_integer_test.c\
+		check_sort_test.c\
+		check_list_integer_test.c\
+		operation_test.c\
+		push_test.c\
+		swap_test.c\
+		rotate_test.c\
+		reverse_rotate_test.c\
+		parser_save_test_integration.c\
+		sort_test.c\
+		two_number_test.c\
+		three_number_test.c\
+		five_number_test.c\
+		ten_number_test.c\
+		sort_long_test.c
+
+# COMPILED_SOURCES #
+
+OBJ_DIR := ./obj/
+OBJS := $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
+
+# **************************************************************************** #
+
+## RULES ##
+
+$(OBJ_DIR)%.o: %.c
+		@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(OBJS)
+		@echo "\n$(CYAN)----------------------------------------"
+		@echo "------------ MAKE PUSH SWAP ------------"
+		@echo "----------------------------------------\n$(DEFAULT)"
+		@$(CC) $(CFLAGS) $(OBJS) $(LIB_FLAGS) $(HEADER) -o $(NAME)
+
+$(OBJS): | $(OBJ_DIR)
+
+$(OBJ_DIR):
+		@mkdir $(OBJ_DIR)
 
 $(LIBFT):
-				@make --no-print-directory -C $(LIBFT_DIR)
+		@make --no-print-directory -C $(LIBFT_DIR)
 
 clean:
-				@make clean --no-print-directory -C $(LIBFT_DIR)
-				@$(RM) $(OBJS)
-				@$(RM) $(OBJ)
+		@make clean --no-print-directory -C $(LIBFT_DIR)
+		@$(RM) $(OBJ_DIR)
 
-fclean:			clean
-				@make fclean --no-print-directory -C $(LIBFT_DIR)
-				@$(RM) $(NAME)
-				@$(RM) valgrind-out.txt
-				@echo "\n$(MAGENTA)----------------------------------------"
-				@echo "------------- CLEANING DONE ------------"
-				@echo "----------------------------------------\n$(DEFAULT)"
+fclean: clean
+		@make fclean --no-print-directory -C $(LIBFT_DIR)
+		@$(RM) $(NAME)
+		@$(RM) valgrind-out.txt
+		@echo "\n$(MAGENTA)----------------------------------------"
+		@echo "------------- CLEANING DONE ------------"
+		@echo "----------------------------------------\n$(DEFAULT)"
 
-re:				fclean all
+re: fclean all
 
-# ============ CHECK NORMI AND MEMORY LEAK ============
+# CHECK MEMORY LEAK #
 
-release:		CFLAGS+=-g -fsanitize=address
-release:		fclean
-release:		$(NAME)
+release: CFLAGS+=-g -fsanitize=address
+release: fclean
+release: $(NAME)
 
-# val:			fclean
-# val:			$(NAME)
+# val: fclean
+# val: $(NAME)
 # val:
-# @valgrind --leak-check=full --log-file=valgrind-out.txt ./$(NAME) $(argv)
+#		@valgrind --leak-check=full --log-file=valgrind-out.txt
+#		./$(NAME) $(seq 1 100 | shuf | tr '\n' ' ')
 
-# full-val:		fclean
-# full-val:		$(NAME)
+# full-val: fclean
+# full-val: $(NAME)
 # full-val:
-# @valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(argv)
+# @valgrind
+# --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt
+# ./$(NAME) $(seq 1 100 | shuf | tr '\n' ' ')
+
+# NORMINETTE #
 
 normi:
-				@echo "\n$(YELLOW)----------------------------------------"
-				@echo "-------------- NORMINETTE -------------"
-				@echo "----------------------------------------\n$(DEFAULT)"
-				@norminette includes libft/includes libft/src src/parser src/operation
+		@echo "\n$(YELLOW)----------------------------------------"
+		@echo "-------------- NORMINETTE -------------"
+		@echo "----------------------------------------\n$(DEFAULT)"
+		@norminette includes libft/includes libft/src src/parser src/operation
 
-debug:		CFLAGS+=-g
-debug:		fclean
-debug:		$(NAME)
+debug: CFLAGS+=-g
+debug: fclean
+debug: $(NAME)
 
-.PHONY:			all clean fclean re release val full-val normi
+.PHONY: all clean fclean re release val full-val normi
