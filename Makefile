@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/29 06:59:29 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/04/29 07:03:34 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,29 +20,29 @@ CYAN		=	\e[96m
 
 # **************************************************************************** #
 
-NAME := push_swap
+NAME = push_swap
 
 # LIBRARY #
 
-LIBFT := libft.a
-LIBFT_DIR := ./libft/
-HEADER := -I includes -I $(LIBFT_DIR)includes
-LIB_FLAGS := -L $(LIBFT_DIR) -lft
+LIBFT = libft.a
+LIBFT_DIR = ./libft/
+HEADER = -I includes -I $(LIBFT_DIR)includes
+LIB_FLAGS = -L $(LIBFT_DIR) -lft
 
 # COMPILATION #
 
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 # DELETE #
 
-RM := rm -rf
+RM = rm -rf
 
 # DIRECTORIES #
 
-SRC_DIR := ./src/
+SRC_DIR = ./src/
 
-VPATH := $(SRC_DIR)\
+VPATH = $(SRC_DIR)\
 		$(SRC_DIR)parser\
 		$(SRC_DIR)operation\
 		$(SRC_DIR)sort\
@@ -54,7 +54,7 @@ VPATH := $(SRC_DIR)\
 
 # FILES #
 
-SRCS := main.c\
+SRCS = main.c\
 		parser_save.c\
 		check_number.c\
 		save_number.c\
@@ -88,8 +88,8 @@ SRCS := main.c\
 
 # COMPILED_SOURCES #
 
-OBJ_DIR := ./obj/
-OBJS := $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
+OBJ_DIR = ./obj/
+OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
 
 # **************************************************************************** #
 
