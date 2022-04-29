@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:20:33 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/28 06:10:46 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:05:17 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,35 @@ static int	check_sorted_array(int *num, int size)
 	return (SUCCESS);
 }
 
-static void	put_arr(int *num, int size)
-{
-	int	i;
+// static void	put_arr(int *num, int size)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < size)
-	{
-		printf("[%d]\n", num[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("[%d]\n", num[i]);
+// 		i++;
+// 	}
+// }
+
+// static int	count_nodes(t_list *last)
+// {
+// 	t_list	*temp;
+// 	int		count;
+
+// 	count = 0;
+// 	if (last == NULL)
+// 		return (count);
+// 	temp = last->next;
+// 	while (temp != last)
+// 	{
+// 		count++;
+// 		temp = temp->next;
+// 	}
+// 	count++;
+// 	return (count);
+// }
 
 static int	test_num_format_array(void)
 {
@@ -94,7 +112,7 @@ static int	test_sort_array(void)
 	set_twenty_numbers(&stack);
 	result = save_numbers_in_array(&stack);
 	quicksort(result, 0, stack.full_size - 1);
-	put_arr(result, stack.full_size);
+	// put_arr(result, stack.full_size);
 	if (check_sorted_array(result, stack.full_size) == SUCCESS)
 	{
 		free(result);
@@ -108,11 +126,37 @@ static int	test_sort_array(void)
 	"Ensure sorted array", FAILURE));
 }
 
+static int	test_partition_a_and_push_b(void)
+{
+	t_stack	stack;
+
+	set_twenty_numbers(&stack);
+	partition_a_and_push_b(&stack);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_a, 1);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_b, 1);
+	printf("==============\n");
+	if (stack.size_a == ((stack.full_size / 4) - 1))
+	{
+		ft_lstclear(&stack.last_a);
+		ft_lstclear(&stack.last_b);
+		return (print_status("sort_long_test.c", "test_partition_a_and_push_b",
+		"OK", SUCCESS));
+	}
+	ft_lstclear(&stack.last_a);
+	ft_lstclear(&stack.last_b);
+	return (print_status("sort_long_test.c", "test_partition_a_and_push_b",
+	"Ensure partition stack a and push smallest number to b", FAILURE));
+}
+
 int	sort_long_test(void)
 {
 	if (test_num_format_array())
 		return (FAILURE);
 	if (test_sort_array())
+		return (FAILURE);
+	if (test_partition_a_and_push_b())
 		return (FAILURE);
 	return (SUCCESS);
 }
