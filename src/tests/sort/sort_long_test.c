@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:20:33 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/29 07:29:56 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:20:49 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	set_twenty_numbers(t_stack *stack)
 {
 	stack->full_size = 20;
 	stack->size_a = stack->full_size;
+	stack->size_b = 0;
 	stack->last_a = NULL;
 	stack->last_b = NULL;
 	ft_lstadd_back(&stack->last_a, 8);
@@ -78,7 +79,7 @@ static int	check_sorted_array(int *num, int size)
 // 	while (temp != last)
 // 	{
 // 		count++;
-// 		temp = temp->next;
+// 		temp = temp->next;full_size
 // 	}
 // 	count++;
 // 	return (count);
@@ -157,11 +158,11 @@ static int	test_sort_number_remain_a(void)
 	set_twenty_numbers(&stack);
 	partition_a_and_push_b(&stack);
 	sort_number_remain_a(&stack);
-	printf("==============\n");
-	ft_putlst_fd(stack.last_a, 1);
-	printf("==============\n");
-	ft_putlst_fd(stack.last_b, 1);
-	printf("==============\n");
+	// printf("==============\n");
+	// ft_putlst_fd(stack.last_a, 1);
+	// printf("==============\n");
+	// ft_putlst_fd(stack.last_b, 1);
+	// printf("==============\n");
 	if (check_sort(stack.last_a) == SUCCESS)
 	{
 		ft_lstclear(&stack.last_a);
@@ -175,6 +176,56 @@ static int	test_sort_number_remain_a(void)
 	"Ensure sort of the remaining numbers in the stack a", FAILURE));
 }
 
+static int	test_find_bigger_num_node(void)
+{
+	t_stack	stack;
+	int		smallest_num_index;
+
+	stack.full_size = 5;
+	stack.size_a = stack.full_size;
+	stack.last_a = NULL;
+	stack.last_b = NULL;
+	ft_lstadd_back(&stack.last_a, 1);
+	ft_lstadd_back(&stack.last_a, 10);
+	ft_lstadd_back(&stack.last_a, 2);
+	ft_lstadd_back(&stack.last_a, -7);
+	ft_lstadd_back(&stack.last_a, 20);
+	smallest_num_index = index_of_bigger_number(stack.last_a);
+	if (smallest_num_index == 4)
+	{
+		ft_lstclear(&stack.last_a);
+		return (print_status("sort_long_test.c", "test_find_bigger_num_node",
+		"OK", SUCCESS));
+	}
+	ft_lstclear(&stack.last_a);
+	return (print_status("sort_long_test.c", "test_find_bigger_num_node",
+	"Ensure returns position node with the biggest number", FAILURE));
+}
+
+static int	test_sort_twenty_numbers(void)
+{
+	t_stack	stack;
+
+	set_twenty_numbers(&stack);
+	sort_up_to_one_hundred_numbers(&stack);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_a, 1);
+	printf("==============\n");
+	ft_putlst_fd(stack.last_b, 1);
+	printf("==============\n");
+	if (check_sort(stack.last_a) == SUCCESS && stack.last_b == NULL)
+	{
+		ft_lstclear(&stack.last_a);
+		ft_lstclear(&stack.last_b);
+		return (print_status("sort_long_test.c", "test_sort_twenty_numbers",
+		"OK", SUCCESS));
+	}
+	ft_lstclear(&stack.last_a);
+	ft_lstclear(&stack.last_b);
+	return (print_status("sort_long_test.c", "test_sort_twenty_numbers",
+	"Ensure sort twenty numbers", FAILURE));
+}
+
 int	sort_long_test(void)
 {
 	if (test_num_format_array())
@@ -184,6 +235,10 @@ int	sort_long_test(void)
 	if (test_partition_a_and_push_b())
 		return (FAILURE);
 	if (test_sort_number_remain_a())
+		return (FAILURE);
+	if (test_find_bigger_num_node())
+		return (FAILURE);
+	if (test_sort_twenty_numbers())
 		return (FAILURE);
 	return (SUCCESS);
 }
