@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/26 12:19:04 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:55:20 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	check_duplicate(t_list **last, long int data)
 {
 	t_list	*temp;
 
-	if (*last == NULL || *last == (*last)->next)
+	if (*last == NULL)
 		return (SUCCESS);
 	temp = (*last)->next;
 	while (temp != *last)

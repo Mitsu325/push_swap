@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 06:38:59 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/26 12:20:16 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:50:12 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,25 +185,25 @@ static int	test_multiple_number_with_space(void)
 // 	return (SUCCESS);
 // }
 
-// static int	test_duplicates(void)
-// {
-// 	t_parser_save check;
+static int	test_duplicates(void)
+{
+	t_parser_save check;
 
-// 	check.argv[0] = "./push_swap";
-// 	check.argv[1] = "-9";
-// 	check.argv[2] = "6  -9";
-// 	check.argv[3] = "1";
-// 	check.argv[4] = "\0";
-// 	check.stack.last_a = NULL;
-// 	check.result = parser_save(check.argv, &check.stack);
-// 	ft_lstclear(&check.stack.last_a);
-// 	if (check.result == FAILURE || check.result == SUCCESS)
-// 	{
-// 		return (print_status("parser_save", "test_duplicates",
-// 		"Ensure exit and put Error if argv are duplicates", FAILURE));
-// 	}
-// 	return (SUCCESS);
-// }
+	check.argv[0] = "./push_swap";
+	check.argv[1] = "-9";
+	check.argv[2] = "-9  3";
+	check.argv[3] = "1";
+	check.argv[4] = "\0";
+	check.stack.last_a = NULL;
+	check.result = parser_save(check.argv, &check.stack);
+	ft_lstclear(&check.stack.last_a);
+	if (check.result == FAILURE || check.result == SUCCESS)
+	{
+		return (print_status("parser_save", "test_duplicates",
+		"Ensure exit and put Error if argv are duplicates", FAILURE));
+	}
+	return (SUCCESS);
+}
 
 static int	test_count_number(void)
 {
@@ -268,8 +268,8 @@ int	parser_save_test_i(void)
 	// 	return (FAILURE);
 	// if (test_smaller_int())
 	// 	return (FAILURE);
-	// if (test_duplicates())
-	// 	return (FAILURE);
+	if (test_duplicates())
+		return (FAILURE);
 	if (test_count_number())
 		return (FAILURE);
 	// if (test_consecutive_signal())
