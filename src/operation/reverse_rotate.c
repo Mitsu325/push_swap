@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/22 06:34:21 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:17:22 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,12 @@ int	rra(t_stack *stack)
 {
 	reverse_rotate(&stack->last_a);
 	ft_putstr_fd("rra\n", 1);
+	return (SUCCESS);
+}
+
+int	rrb(t_stack *stack)
+{
+	reverse_rotate(&stack->last_b);
+	ft_putstr_fd("rrb\n", 1);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:15:05 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/27 07:27:03 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/29 07:46:57 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	sort(t_stack *stack)
 		return (sort_up_to_five_numbers(stack));
 	if (stack->full_size <= 10)
 		return (sort_up_to_ten_numbers(stack));
-	// if (stack->full_size <= 100)
-	// 	return (sort_up_to_one_hundred_numbers(stack));
+	if (stack->full_size <= 100)
+		return (sort_up_to_one_hundred_numbers(stack));
 	return (SUCCESS);
 }

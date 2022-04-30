@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 07:13:21 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/29 07:40:07 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:22:06 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	index_of_small_pivot(t_list *last, int pivot)
 	return (-1);
 }
 
-void	move_number_to_top(t_stack *stack, int index)
+void	move_number_to_top(t_stack *stack, int index, int stack_size)
 {
 	int	half_size;
 
@@ -122,7 +122,7 @@ void	move_number_to_top(t_stack *stack, int index)
 		sa(stack);
 		return ;
 	}
-	half_size = (stack->size_a / 2) + (stack->size_a % 2);
+	half_size = (stack_size / 2) + (stack_size % 2);
 	if (index < half_size)
 	{
 		while (index != 0)
@@ -132,23 +132,50 @@ void	move_number_to_top(t_stack *stack, int index)
 		}
 		return ;
 	}
-	while (index != stack->size_a)
+	while (index != stack_size)
 	{
 		rra(stack);
 		index++;
 	}
 }
 
+void	move_number_to_top_b(t_stack *stack, int index, int stack_size)
+{
+	int	half_size;
+
+	if (index == 1)
+	{
+		sb(stack);
+		return ;
+	}
+	half_size = (stack_size / 2) + (stack_size % 2);
+	if (index < half_size)
+	{
+		while (index != 0)
+		{
+			rb(stack);
+			index--;
+		}
+		return ;
+	}
+	while (index != stack_size)
+	{
+		rrb(stack);
+		index++;
+	}
+}
+
 static void	push_small_number_pivot_to_b(t_stack *stack, int pivot)
 {
-	int		index;
+	int	index;
 
 	index = index_of_small_pivot(stack->last_a, pivot);
 	while (index != -1)
 	{
 		if (index != 0)
-			move_number_to_top(stack, index);
+			move_number_to_top(stack, index, stack->size_a);
 		pb(stack);
+		stack->size_b++;
 		stack->size_a--;
 		index = index_of_small_pivot(stack->last_a, pivot);
 	}
@@ -187,7 +214,49 @@ void	sort_number_remain_a(t_stack *stack)
 	push_smallest_number_to_a(stack, num_pushed_b);
 }
 
-// int	sort_up_to_one_hundred_numbers(t_stack *stack)
-// {
-// 	return (SUCCESS);
-// }
+int	index_of_bigger_number(t_list *last)
+{
+	t_list	*temp;
+	int		max;
+	int		i;
+	int		bigger_number_index;
+
+	i = 0;
+	bigger_number_index = i;
+	temp = last->next;
+	max = temp->data;
+	while (temp != last)
+	{
+		i++;
+		if (max < temp->next->data)
+		{
+			max = temp->next->data;
+			bigger_number_index = i;
+		}
+		temp = temp->next;
+	}
+	return (bigger_number_index);
+}
+
+void	push_biggest_numbers_to_a(t_stack *stack)
+{
+	int		index;
+
+	while (stack->last_b != NULL)
+	{
+		index = index_of_bigger_number(stack->last_b);
+		if (index != 0)
+			move_number_to_top_b(stack, index, stack->size_b);
+		pa(stack);
+		stack->size_a++;
+		stack->size_b--;
+	}
+}
+
+int	sort_up_to_one_hundred_numbers(t_stack *stack)
+{
+	partition_a_and_push_b(stack);
+	sort_number_remain_a(stack);
+	push_biggest_numbers_to_a(stack);
+	return (SUCCESS);
+}

@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/29 07:41:08 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:17:31 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 	t_list	*last_b;
 	int		full_size;
 	int		size_a;
+	int		size_b;
 }		t_stack;
 
 int		parser_save(char **argv, t_stack *stack);
@@ -39,13 +40,16 @@ int		check_sort(t_list *last);
 
 void	swap(t_list **last);
 int		sa(t_stack *stack);
+int		sb(t_stack *stack);
 void	push(t_list **last_to, t_list **last_from);
 int		pa(t_stack *stack);
 int		pb(t_stack *stack);
 void	rotate(t_list **last);
 int		ra(t_stack *stack);
+int		rb(t_stack *stack);
 void	reverse_rotate(t_list **last);
 int		rra(t_stack *stack);
+int		rrb(t_stack *stack);
 
 int		sort(t_stack *stack);
 int		sort_three_numbers(t_stack *stack);
@@ -57,6 +61,7 @@ void	quicksort(int *num, int low, int high);
 void	partition_a_and_push_b(t_stack *stack);
 void	sort_number_remain_a(t_stack *stack);
 void	push_smallest_number_to_a(t_stack *stack, int num_pushed_b);
+int		index_of_bigger_number(t_list *last);
 
 int		find_smallest_num_node(t_list *last);
 void	push_smallest_number_to_b(t_stack *stack, int size_stack);
