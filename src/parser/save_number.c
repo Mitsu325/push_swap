@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/30 17:55:20 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/03 06:24:26 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ static int	check_consecutive_sign(char *str)
 	return (SUCCESS);
 }
 
+static int	check_without_digit(char *str)
+{
+	int	count;
+
+	count = 0;
+	while (*str != '\0')
+	{
+		if (ft_isdigit(*str))
+			count++;
+		str++;
+	}
+	if (count)
+		return (SUCCESS);
+	return (FAILURE);
+}
+
 int	save_number(t_stack *stack, char *number)
 {
 	long int	data;
@@ -79,6 +95,8 @@ int	save_number(t_stack *stack, char *number)
 	while (*(split_num + i))
 	{
 		if (check_consecutive_sign(*(split_num + i)))
+			return (clean_split(split_num, FAILURE));
+		if (check_without_digit(*(split_num + i)))
 			return (clean_split(split_num, FAILURE));
 		data = ft_atoi(*(split_num + i));
 		if (is_integer(data))
