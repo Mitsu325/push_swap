@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 07:13:21 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/30 17:22:06 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/03 04:46:03 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ int	*save_numbers_in_array(t_stack *stack)
 
 static int	get_partition(int size)
 {
-	if (size < 100)
-		return (4);
-	return (8);
+	if (size <= 100)
+		return (6);
+	return (11);
 }
 
 static int	get_pivot(int *sorted_number, int size, int factor, int divisor)
@@ -113,15 +113,34 @@ int	index_of_small_pivot(t_list *last, int pivot)
 	return (-1);
 }
 
+// static int	can_swap_b(t_list *last)
+// {
+// 	t_list	*top;
+
+// 	if (last == NULL || last == last->next)
+// 		return (FAILURE);
+// 	top = last->next;
+// 	if (top->data < top->next->data)
+// 		return (SUCCESS);
+// 	return (FAILURE);
+// }
+
 void	move_number_to_top(t_stack *stack, int index, int stack_size)
 {
 	int	half_size;
+	// int	can_sb;
 
-	if (index == 1)
-	{
-		sa(stack);
-		return ;
-	}
+	// can_sb = can_swap_b(stack->last_b);
+	// if (index == 1)
+	// {
+	// 	if (can_sb == SUCCESS)
+	// 		ss(stack);
+	// 	else
+	// 		sa(stack);
+	// 	return ;
+	// }
+	// else if (can_sb == SUCCESS)
+	// 	sb(stack);
 	half_size = (stack_size / 2) + (stack_size % 2);
 	if (index < half_size)
 	{
@@ -255,8 +274,13 @@ void	push_biggest_numbers_to_a(t_stack *stack)
 
 int	sort_up_to_one_hundred_numbers(t_stack *stack)
 {
+	// ft_putlst_fd(stack->last_a, 1);
+	// ft_putstr_fd("==============================\n", 1);
 	partition_a_and_push_b(stack);
+	// ft_putstr_fd("==============================\n", 1);
 	sort_number_remain_a(stack);
+	// ft_putstr_fd("==============================\n", 1);
 	push_biggest_numbers_to_a(stack);
+	// ft_putstr_fd("==============================\n", 1);
 	return (SUCCESS);
 }
