@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/30 17:14:58 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/01 09:59:55 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,13 @@ int	sb(t_stack *stack)
 {
 	swap(&stack->last_b);
 	ft_putstr_fd("sb\n", 1);
+	return (SUCCESS);
+}
+
+int	ss(t_stack *stack)
+{
+	swap(&stack->last_a);
+	swap(&stack->last_b);
+	ft_putstr_fd("ss\n", 1);
 	return (SUCCESS);
 }
