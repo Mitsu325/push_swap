@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_save.c                                      :+:      :+:    :+:   */
+/*   sort_number_remain_a.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 06:36:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 07:27:23 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/05/08 17:28:38 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/05/08 17:30:12 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: parser_save
+** FUNCTION: complex_sort
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Takes the argv parameter, checks if it is a number and if it is sorted. Also
-** save the numbers in t_stack struct.
+** Sort the remaining numbers from the stack a.
 ** PARAMETERS:
-** #argv. The list of strings
 ** #stack. The t_stack struct
 ** RETURN VALUES:
-** Return 0 if successful. The program exists if the numbers are sorted and
-** in case of error before return.
+** -
 ** -------------------------------------------------------------------------- */
-int	parser_save(char **argv, t_stack *stack)
+void	sort_number_remain_a(t_stack *stack)
 {
-	int	i;
+	int	size_stack;
+	int	num_pushed_b;
 
-	if (check_number(++argv))
-		exit_safe_parser(&stack->last_a, FAILURE);
-	i = 0;
-	while (*(argv + i) && **(argv + i))
-	{
-		if (save_number(stack, *(argv + i)))
-			exit_safe_parser(&stack->last_a, FAILURE);
-		i++;
-	}
-	if (stack->last_a == NULL || check_sort(stack->last_a) == SUCCESS)
-		exit_safe_parser(&stack->last_a, SUCCESS);
-	stack->size_a = stack->full_size;
-	return (SUCCESS);
+	size_stack = 3;
+	num_pushed_b = stack->size_a - size_stack;
+	push_smallest_number_to_b(stack, size_stack);
+	if (check_sort(stack->last_a))
+		sort_three_numbers(stack);
+	push_number_to_a(stack, num_pushed_b);
 }

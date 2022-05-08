@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/04/29 07:03:34 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/05/08 17:48:48 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ VPATH = $(SRC_DIR)\
 		$(SRC_DIR)parser\
 		$(SRC_DIR)operation\
 		$(SRC_DIR)sort\
+		$(SRC_DIR)utils\
 		$(SRC_DIR)tests\
 		$(SRC_DIR)tests/integration\
 		$(SRC_DIR)tests/operation\
@@ -64,10 +65,18 @@ SRCS = main.c\
 		rotate.c\
 		reverse_rotate.c\
 		sort.c\
-		sort_three_numbers.c\
-		sort_up_to_five_numbers.c\
-		sort_up_to_one_hundred_numbers.c\
-		helper_test.c\
+		simple_sort.c\
+		simple_sort_helper.c\
+		complex_sort.c\
+		partition_a_and_push_b.c\
+		push_biggest_numbers_to_a.c\
+		push_small_number_pivot_to_b.c\
+		sort_number_remain_a.c\
+		quicksort.c\
+		stack_utils.c\
+		parser_utils.c
+
+SRCS += helper_test.c\
 		parser_save_test.c\
 		save_test.c\
 		is_integer_test.c\

@@ -1,60 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_number.c                                     :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 06:46:14 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/05/06 05:57:01 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/05/06 05:58:56 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: is_number
+** FUNCTION: init_stack
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Check if the string contains only digits, space or sign.
+** Initialize the t_stack struct.
 ** PARAMETERS:
-** #numbers. The string
+** #stack. The t_stack struct
 ** RETURN VALUES:
-** Return 0 if the string contains only numbers and 1 if the list contains
-** other characters.
+** -
 ** -------------------------------------------------------------------------- */
-static int	is_number(char *str)
+void	init_stack(t_stack *stack)
 {
-	while (*str)
-	{
-		if (!ft_isdigit(*str) && !ft_isspace(*str) && !ft_issignal(*str))
-			return (FAILURE);
-		str++;
-	}
-	return (SUCCESS);
+	stack->last_a = NULL;
+	stack->last_b = NULL;
+	stack->full_size = 0;
+	stack->size_a = 0;
+	stack->size_b = 0;
 }
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: check_number
+** FUNCTION: exit_safe_stack
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Check if the string list contains only digits, space or sign.
+** Free all memory allocated within t_stack struct.
 ** PARAMETERS:
-** #numbers. The list of strings
+** #stack. The t_stack struct
+** #status. The return number
 ** RETURN VALUES:
-** Return 0 if the string list contains only numbers and 1 if the list contains
-** other characters.
+** Return the status number.
 ** -------------------------------------------------------------------------- */
-int	check_number(char **argv)
+int	exit_safe_stack(t_stack *stack, int status)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (*(argv + i) && **(argv + i))
-	{
-		if (is_number(*(argv + i)))
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
+	ft_lstclear(&stack->last_a);
+	ft_lstclear(&stack->last_b);
+	return (status);
 }

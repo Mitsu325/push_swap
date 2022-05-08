@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_test.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 08:19:20 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 09:38:28 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/05/06 06:39:53 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
-
-int	sort_test(void)
+int	ft_isdigit(int c)
 {
-	// if (two_number_test())
-	// 	return (FAILURE);
-	// if (three_number_test())
-	// 	return (FAILURE);
-	if (five_number_test())
-		return (FAILURE);
-	// if (ten_number_test())
-	// 	return (FAILURE);
-	// if (sort_long_test())
-	// 	return (FAILURE);
-	return (SUCCESS);
+	return (c >= '0' && c <= '9');
 }

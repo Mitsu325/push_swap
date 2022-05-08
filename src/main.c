@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:16 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/30 17:58:19 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/06 05:45:51 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ int	parser_test(char **argv)
 	return (SUCCESS);
 }
 
+/* -------------------------------------------------------------------------- **
+** push_swap
+** -------------------------------------------------------------------------- **
+** DESCRIPTION:
+** This project sorts the data into an integer stack and sorts with a limited
+** operations using only two stacks. The execution of the program starts with
+** initialization of the t_stack struct and will receive the argv, parse it
+** into a t_stack struct and sort it appropriately.
+** -------------------------------------------------------------------------- */
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
@@ -34,14 +43,8 @@ int	main(int argc, char **argv)
 		return (FAILURE);
 	if (parser_test(argv))
 		return (FAILURE);
-	stack.last_a = NULL;
-	stack.last_b = NULL;
-	stack.full_size = 0;
-	stack.size_a = 0;
-	stack.size_b = 0;
+	init_stack(&stack);
 	parser_save(argv, &stack);
 	sort(&stack);
-	ft_lstclear(&stack.last_a);
-	ft_lstclear(&stack.last_b);
-	return (SUCCESS);
+	return (exit_safe_stack(&stack, SUCCESS));
 }

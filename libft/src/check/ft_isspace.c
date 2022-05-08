@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 08:15:05 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 16:41:34 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/05/06 06:43:32 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: sort
+** FUNCTION: ft_isspace
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Sort the stack by stack size.
+** Check if the characters is space.
 ** PARAMETERS:
-** #stack. The t_stack struct
+** #c. The character
 ** RETURN VALUES:
-** Return 0 if successful.
+** Return 1 if char is space and 0 if its another char.
 ** -------------------------------------------------------------------------- */
-int	sort(t_stack *stack)
+int	ft_isspace(int c)
 {
-	if (stack->full_size == 2)
-		return (sa(stack));
-	if (stack->full_size == 3)
-		return (sort_three_numbers(stack));
-	if (stack->full_size <= 5)
-		return (sort_up_to_five_numbers(stack));
-	if (stack->full_size <= 10)
-		return (sort_up_to_ten_numbers(stack));
-	else
-		return (complex_sort(stack));
-	return (SUCCESS);
+	return (c == SPC);
 }

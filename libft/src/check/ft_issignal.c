@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_issignal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/03/26 01:26:37 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/06 06:44:45 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+/* -------------------------------------------------------------------------- **
+** FUNCTION: ft_issignal
+** -------------------------------------------------------------------------- **
+** DESCRIPTION:
+** Check if the characters is signal '+' or '-'.
+** PARAMETERS:
+** #c. The character
+** RETURN VALUES:
+** Return 1 if char is signal and 0 if its another char.
+** -------------------------------------------------------------------------- */
+int	ft_issignal(int c)
 {
-	return (c >= '0' && c <= '9');
+	return (c == '+' || c == '-');
 }

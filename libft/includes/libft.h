@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:27:18 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/15 17:13:35 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/06 06:45:43 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int			ft_isdigit(int c);
+int			ft_issignal(int c);
+int			ft_isspace(int c);
+
 int			ft_lstadd_back(t_list **last, int data);
 void		ft_lstclear(t_list **last);
 
 long int	ft_atoi(const char *str);
-int			ft_isdigit(int c);
 int			is_white_space(int c);
 char		*ft_itoa(int n);
 

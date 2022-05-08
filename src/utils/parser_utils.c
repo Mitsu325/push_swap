@@ -1,60 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_number.c                                     :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 18:38:24 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 06:46:14 by pmitsuko         ###   ########.fr       */
+/*   Created: 2022/05/06 07:25:01 by pmitsuko          #+#    #+#             */
+/*   Updated: 2022/05/06 07:31:38 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: is_number
+** FUNCTION: exit_safe_parser
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Check if the string contains only digits, space or sign.
+** Free all memory allocated within t_list struct. In case the status is 1,
+** it must display "Error".
 ** PARAMETERS:
-** #numbers. The string
+** #last. The t_list struct
+** #status. The return number
 ** RETURN VALUES:
-** Return 0 if the string contains only numbers and 1 if the list contains
-** other characters.
+** -
 ** -------------------------------------------------------------------------- */
-static int	is_number(char *str)
+void	exit_safe_parser(t_list **last, int status)
 {
-	while (*str)
-	{
-		if (!ft_isdigit(*str) && !ft_isspace(*str) && !ft_issignal(*str))
-			return (FAILURE);
-		str++;
-	}
-	return (SUCCESS);
+	if (status == FAILURE)
+		ft_putstr_fd("Error\n", 2);
+	ft_lstclear(last);
+	exit(status);
 }
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: check_number
+** FUNCTION: clean_split
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
-** Check if the string list contains only digits, space or sign.
+** Free all memory allocated within split.
 ** PARAMETERS:
-** #numbers. The list of strings
+** #split. The list of strings
+** #status. The return number
 ** RETURN VALUES:
-** Return 0 if the string list contains only numbers and 1 if the list contains
-** other characters.
+** Return status number.
 ** -------------------------------------------------------------------------- */
-int	check_number(char **argv)
+int	clean_split(char **split, int status)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (*(argv + i) && **(argv + i))
+	while (*(split + i))
 	{
-		if (is_number(*(argv + i)))
-			return (FAILURE);
+		free(*(split + i));
 		i++;
 	}
-	return (SUCCESS);
+	free(split);
+	return (status);
 }
