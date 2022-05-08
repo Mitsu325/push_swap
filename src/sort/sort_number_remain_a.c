@@ -6,14 +6,14 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:28:38 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:30:12 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/08 17:52:19 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: complex_sort
+** FUNCTION: sort_number_remain_a
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
 ** Sort the remaining numbers from the stack a.

@@ -6,14 +6,14 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:42:12 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:42:13 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/08 17:52:37 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: partition
+** FUNCTION: swap_ptr
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
 ** Swap pointers: ptr_a and ptr_b.
@@ -23,7 +23,7 @@
 ** RETURN VALUES:
 ** -
 ** -------------------------------------------------------------------------- */
-static void swap_ptr(int *ptr_a, int *ptr_b)
+static void	swap_ptr(int *ptr_a, int *ptr_b)
 {
 	int	temp;
 
