@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:14:05 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/09 07:37:12 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@
 ** -------------------------------------------------------------------------- */
 static int	get_partition(int size)
 {
+	if (size <= 50)
+		return (2);
 	if (size <= 100)
+		return (4);
+	if (size <= 200)
 		return (6);
+	if (size <= 300)
+		return (8);
+	if (size <= 400)
+		return (10);
 	return (11);
 }
 
@@ -74,11 +82,11 @@ static int	*save_numbers_in_array(t_stack *stack)
 ** RETURN VALUES:
 ** Returns the pivot number.
 ** -------------------------------------------------------------------------- */
-static int	get_pivot(int *sorted_number, int size, int factor, int divisor)
+static int	get_pivot(int *sorted_number, int size, int divisor)
 {
 	int	pivot;
 
-	pivot = sorted_number[((size * factor) / divisor)];
+	pivot = sorted_number[(size / divisor)];
 	return (pivot);
 }
 
@@ -96,19 +104,19 @@ static int	get_pivot(int *sorted_number, int size, int factor, int divisor)
 void	partition_a_and_push_b(t_stack *stack)
 {
 	int	*sorted_number;
-	int	i;
 	int	partition;
 	int	pivot;
+	int	i;
 
-	i = 1;
-	partition = get_partition(stack->size_a);
 	sorted_number = save_numbers_in_array(stack);
 	quicksort(sorted_number, 0, stack->full_size - 1);
-	while (i < partition)
+	i = 0;
+	while (stack->size_a > 5)
 	{
-		pivot = get_pivot(sorted_number, stack->full_size, i, partition);
+		partition = get_partition(stack->size_a);
+		pivot = get_pivot(sorted_number + i, stack->size_a, partition);
 		push_small_number_pivot_to_b(stack, pivot);
-		i++;
+		i += (stack->size_a / partition);
 	}
 	free(sorted_number);
 }
