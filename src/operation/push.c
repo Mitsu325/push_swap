@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/07 19:07:13 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/09 05:44:09 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int	pa(t_stack *stack)
 {
 	push(&stack->last_a, &stack->last_b);
 	ft_putstr_fd("pa\n", 1);
+	stack->size_a++;
+	stack->size_b--;
 	return (SUCCESS);
 }
 
@@ -115,5 +117,7 @@ int	pb(t_stack *stack)
 {
 	push(&stack->last_b, &stack->last_a);
 	ft_putstr_fd("pb\n", 1);
+	stack->size_a--;
+	stack->size_b++;
 	return (SUCCESS);
 }

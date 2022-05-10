@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:31:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:40:21 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/09 05:44:49 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,5 @@ void	push_biggest_numbers_to_a(t_stack *stack)
 		if (index != 0)
 			move_number_to_top_b(stack, index, stack->size_b);
 		pa(stack);
-		stack->size_a++;
-		stack->size_b--;
 	}
 }

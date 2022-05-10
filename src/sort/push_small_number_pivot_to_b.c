@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:13:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:27:32 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/09 05:45:40 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,6 @@ void	push_small_number_pivot_to_b(t_stack *stack, int pivot)
 		if (index != 0)
 			move_number_to_top(stack, index, stack->size_a);
 		pb(stack);
-		stack->size_b++;
-		stack->size_a--;
 		index = index_of_small_num_pivot(stack->last_a, pivot);
 	}
 }
