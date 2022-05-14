@@ -6,22 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:47:15 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:48:00 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:28:26 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: sort_three_numbers
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Sort three stack numbers.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** Return 0 if successful.
-** -------------------------------------------------------------------------- */
 int	sort_three_numbers(t_stack *stack)
 {
 	t_list	*first;
@@ -45,18 +35,6 @@ int	sort_three_numbers(t_stack *stack)
 	return (ra(stack));
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: sort_up_to_five_numbers
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Sorts up to five numbers. Push the smallest numbers to stack b until only
-** three numbers remain in a, sorts the three numbers from stack a, and finally
-** pushes the numbers from stack b to stack a.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** Return 0 if successful.
-** -------------------------------------------------------------------------- */
 int	sort_up_to_five_numbers(t_stack *stack)
 {
 	int	size_stack;
@@ -71,18 +49,6 @@ int	sort_up_to_five_numbers(t_stack *stack)
 	return (SUCCESS);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: sort_up_to_ten_numbers
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Sorts up to ten numbers. First push the smallest numbers to stack b until
-** only five numbers remain in a, sorts the five numbers from stack a, and
-** finally pushes the numbers from stack b to stack a.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** Return 0 if successful.
-** -------------------------------------------------------------------------- */
 int	sort_up_to_ten_numbers(t_stack *stack)
 {
 	int	size_stack;

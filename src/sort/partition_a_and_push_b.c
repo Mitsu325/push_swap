@@ -6,22 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/14 10:01:46 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:27:26 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: get_partition
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Sets the amount of stack partitioning as per the stack size.
-** PARAMETERS:
-** #size. The stack size
-** RETURN VALUES:
-** Returns number partition.
-** -------------------------------------------------------------------------- */
 static int	get_partition(int size)
 {
 	if (size <= 25)
@@ -37,16 +27,6 @@ static int	get_partition(int size)
 	return (10);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: save_numbers_in_array
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Save list numbers in array.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** Returns array of numbers.
-** -------------------------------------------------------------------------- */
 static int	*save_numbers_in_array(t_stack *stack)
 {
 	t_list	*temp;
@@ -67,21 +47,6 @@ static int	*save_numbers_in_array(t_stack *stack)
 	return (num);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: get_pivot
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Get the pivot number. Uses the array of sorted numbers and looks for the
-** index which is multiplying the stack size with the factor and dividing by the
-** partitioning amount.
-** PARAMETERS:
-** #sorted_number. The integer array of sorted
-** #size. The stack size
-** #factor. The multiplication factor
-** #divisor. The divider
-** RETURN VALUES:
-** Returns the pivot number.
-** -------------------------------------------------------------------------- */
 static int	get_pivot(int *sorted_number, int size, int divisor)
 {
 	int	pivot;
@@ -90,17 +55,6 @@ static int	get_pivot(int *sorted_number, int size, int divisor)
 	return (pivot);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: partition_a_and_push_b
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Partition the stack a to determinate the pivot and push numbers less than the
-** pivot to stack b.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
 void	partition_a_and_push_b(t_stack *stack)
 {
 	int		*sorted_num;

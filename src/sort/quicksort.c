@@ -6,23 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:42:12 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:52:37 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:27:56 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: swap_ptr
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Swap pointers: ptr_a and ptr_b.
-** PARAMETERS:
-** #ptr_a. The integer pointer
-** #ptr_b. The integer pointer
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
 static void	swap_ptr(int *ptr_a, int *ptr_b)
 {
 	int	temp;
@@ -32,21 +21,6 @@ static void	swap_ptr(int *ptr_a, int *ptr_b)
 	*ptr_b = temp;
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: partition
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** The pivot is number of the highest index. It loops through the array and
-** checks if the number is less than the pivot to swap the position with the
-** number pointed to by pointer i. At the end, change the pivot with the highest
-** number pointed by i.
-** PARAMETERS:
-** #num. The integer array
-** #low_index. The lowest index
-** #high_index. The highest index
-** RETURN VALUES:
-** Return the partition point.
-** -------------------------------------------------------------------------- */
 static int	partition(int *num, int low_index, int high_index)
 {
 	int	pivot;
@@ -69,20 +43,6 @@ static int	partition(int *num, int low_index, int high_index)
 	return (i + 1);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: quicksort
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** An array is divided into subarrays by selecting pivot element. The left and
-** right subarrays are also divided using the same approach until each subarray
-** contains a single element.
-** PARAMETERS:
-** #num. The integer array
-** #low_index. The lowest index
-** #high_index. The highest index
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
 void	quicksort(int *num, int low_index, int high_index)
 {
 	int	pivot;

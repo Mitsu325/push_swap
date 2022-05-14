@@ -6,22 +6,10 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 06:44:45 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:23:17 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-/* -------------------------------------------------------------------------- **
-** FUNCTION: ft_issignal
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check if the characters is signal '+' or '-'.
-** PARAMETERS:
-** #c. The character
-** RETURN VALUES:
-** Return 1 if char is signal and 0 if its another char.
-** -------------------------------------------------------------------------- */
 int	ft_issignal(int c)
 {
 	return (c == '+' || c == '-');

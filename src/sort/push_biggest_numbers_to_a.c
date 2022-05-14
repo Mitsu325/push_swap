@@ -6,22 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:31:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/09 05:44:49 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:27:36 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: index_of_biggest_number
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Get the index of the biggest number in the list
-** PARAMETERS:
-** #last. The t_list struct
-** RETURN VALUES:
-** Returns the index of the biggest number in the list.
-** -------------------------------------------------------------------------- */
 static int	index_of_biggest_number(t_list *last)
 {
 	t_list	*temp;
@@ -46,19 +36,6 @@ static int	index_of_biggest_number(t_list *last)
 	return (bigger_number_index);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: move_number_to_top_b
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Move the index number to the top of stack b with the least amount of
-** operation.
-** PARAMETERS:
-** #stack. The t_stack struct
-** #index. The index of the number that needs to be moved to the top
-** #stack_size. The stack size
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
 static void	move_number_to_top_b(t_stack *stack, int index, int stack_size)
 {
 	int	half_size;
@@ -85,16 +62,6 @@ static void	move_number_to_top_b(t_stack *stack, int index, int stack_size)
 	}
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: push_biggest_numbers_to_a
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Push numbers to stack a from largest to smallest until stack b empty.
-** PARAMETERS:
-** #stack. The t_stack struct
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
 void	push_biggest_numbers_to_a(t_stack *stack)
 {
 	int		index;

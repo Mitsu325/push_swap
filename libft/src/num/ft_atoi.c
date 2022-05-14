@@ -6,12 +6,11 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:21:00 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/04/12 06:32:38 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:23:43 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	is_white_space(int c)
 {

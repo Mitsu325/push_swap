@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/05/14 10:08:41 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/05/14 10:25:04 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,10 @@ NAME = libft.a
 
 HEADER = -I includes
 
-# COMPILATION #
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# DELETE #
-
 RM = rm -rf
-
-# DIRECTORIES #
 
 SRC_DIR = ./src/
 
@@ -33,8 +27,6 @@ VPATH = $(SRC_DIR)\
 		$(SRC_DIR)num\
 		$(SRC_DIR)put\
 		$(SRC_DIR)str
-
-# FILES #
 
 SRCS = ft_isdigit.c\
 		ft_issignal.c\
@@ -53,14 +45,8 @@ SRCS = ft_isdigit.c\
 		ft_strlen.c \
 		ft_substr.c
 
-# COMPILED_SOURCES #
-
 OBJ_DIR = ./obj/
 OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
-
-# **************************************************************************** #
-
-## RULES ##
 
 $(OBJ_DIR)%.o: %.c
 		@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
@@ -85,4 +71,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re test test_v tclean
+.PHONY: all clean fclean re

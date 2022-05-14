@@ -6,22 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 01:21:45 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 06:43:32 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:23:28 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: ft_isspace
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check if the characters is space.
-** PARAMETERS:
-** #c. The character
-** RETURN VALUES:
-** Return 1 if char is space and 0 if its another char.
-** -------------------------------------------------------------------------- */
 int	ft_isspace(int c)
 {
 	return (c == SPC);

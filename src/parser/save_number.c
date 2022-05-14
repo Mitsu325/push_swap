@@ -6,22 +6,12 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/14 10:13:25 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:27:00 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: check_consecutive_sign
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check if the string contains consecutive sign.
-** PARAMETERS:
-** #str. The string
-** RETURN VALUES:
-** Return 0 if the string has no consecutive sign and 1 if consecutive sign.
-** -------------------------------------------------------------------------- */
 static int	check_consecutive_sign(char *str)
 {
 	int	count;
@@ -38,16 +28,6 @@ static int	check_consecutive_sign(char *str)
 	return (SUCCESS);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: check_has_digit
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check if the string contains digit.
-** PARAMETERS:
-** #str. The string
-** RETURN VALUES:
-** Return 0 if the string has digit and 1 if not.
-** -------------------------------------------------------------------------- */
 static int	check_has_digit(char *str)
 {
 	int	count;
@@ -64,16 +44,6 @@ static int	check_has_digit(char *str)
 	return (FAILURE);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: is_integer
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check the number is within the range of integer.
-** PARAMETERS:
-** #number. The long int
-** RETURN VALUES:
-** Return 0 if the number within range and 0 if not.
-** -------------------------------------------------------------------------- */
 static int	is_integer(long int number)
 {
 	if (number >= INT_MIN && number <= INT_MAX)
@@ -81,17 +51,6 @@ static int	is_integer(long int number)
 	return (FAILURE);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: check_duplicate
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Check the data already exists in the list.
-** PARAMETERS:
-** #last. The t_list struct
-** #data. The long int
-** RETURN VALUES:
-** Return 0 if the data contains in the list and 1 if not.
-** -------------------------------------------------------------------------- */
 static int	check_duplicate(t_list **last, long int data)
 {
 	t_list	*temp;
@@ -110,20 +69,6 @@ static int	check_duplicate(t_list **last, long int data)
 	return (SUCCESS);
 }
 
-/* -------------------------------------------------------------------------- **
-** FUNCTION: save_number
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Splits the string with the space char and checks if it has consecutive signs
-** or if it has no digit. Converts string number to int and checks if it is
-** within range integer and has duplicate numbers in list. Then add the number
-** to the end of the list.
-** PARAMETERS:
-** #stack. The t_stack struct
-** #number. The string
-** RETURN VALUES:
-** Return 0 if successful and 1 if failure.
-** -------------------------------------------------------------------------- */
 int	save_number(t_stack *stack, char *number)
 {
 	long int	data;
