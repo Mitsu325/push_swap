@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/13 09:01:51 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:01:46 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	partition_a_and_push_b(t_stack *stack)
 		pvt.partition = get_partition(stack->size_a);
 		pvt.num = get_pivot(sorted_num + i, stack->size_a, pvt.partition);
 		pvt.half = get_pivot(sorted_num + i, stack->size_a, pvt.partition * 2);
-		push_small_number_pivot_to_b(stack, pvt); // ! retornar a quantidade de números que foi empurrado para a pilha b
+		push_small_number_pivot_to_b(stack, pvt);
 		i += (stack->size_a / pvt.partition);
 	}
 	free(sorted_num);
