@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:26 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 19:52:11 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	get_partition(int size)
 {
-	if (size <= 25)
-		return (1);
 	if (size <= 50)
 		return (2);
 	if (size <= 150)
