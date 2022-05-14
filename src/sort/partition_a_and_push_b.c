@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/14 19:52:11 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 19:52:50 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	partition_a_and_push_b(t_stack *stack)
 {
 	int		*sorted_num;
 	t_pivot	pvt;
-	int	i;
+	int		i;
 
 	sorted_num = save_numbers_in_array(stack);
 	quicksort(sorted_num, 0, stack->full_size - 1);
