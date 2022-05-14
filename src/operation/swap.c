@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/07 19:34:54 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:17:09 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** RETURN VALUES:
 ** -
 ** -------------------------------------------------------------------------- */
-void	swap(t_list **last)
+static void	swap(t_list **last)
 {
 	t_list	*head;
 	t_list	*temp;

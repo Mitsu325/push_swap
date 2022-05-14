@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 06:58:42 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/06 07:49:32 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:13:25 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	check_has_digit(char *str)
 ** RETURN VALUES:
 ** Return 0 if the number within range and 0 if not.
 ** -------------------------------------------------------------------------- */
-int	is_integer(long int number) // TODO: convert function to static before remove tester
+static int	is_integer(long int number)
 {
 	if (number >= INT_MIN && number <= INT_MAX)
 		return (SUCCESS);

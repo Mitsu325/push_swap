@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 23:50:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/05/14 10:10:46 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/05/14 10:19:41 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,6 @@ SRCS = main.c\
 		partition_a_and_push_b.c\
 		push_biggest_numbers_to_a.c\
 		push_small_number_pivot_to_b.c\
-		sort_number_remain_a.c\
 		quicksort.c\
 		stack_utils.c\
 		parser_utils.c

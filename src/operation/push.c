@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/09 05:44:09 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:16:37 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	insert_first_node(t_list **last, t_list *node)
 ** RETURN VALUES:
 ** -
 ** -------------------------------------------------------------------------- */
-void	push(t_list **last_to, t_list **last_from)
+static void	push(t_list **last_to, t_list **last_from)
 {
 	t_list	*first;
 

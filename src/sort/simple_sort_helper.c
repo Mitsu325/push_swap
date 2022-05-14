@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 09:48:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/09 05:45:46 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:13:45 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** RETURN VALUES:
 ** Return the index of the smallest number.
 ** -------------------------------------------------------------------------- */
-int	find_smallest_num_node(t_list *last) // TODO: convert function to static before remove tester
+static int	find_smallest_num_node(t_list *last)
 {
 	t_list	*temp;
 	int		min;

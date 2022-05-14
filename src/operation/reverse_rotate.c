@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:03:23 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/07 19:24:36 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/14 10:16:50 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** RETURN VALUES:
 ** -
 ** -------------------------------------------------------------------------- */
-void	reverse_rotate(t_list **last)
+static void	reverse_rotate(t_list **last)
 {
 	t_list	*temp;
 
