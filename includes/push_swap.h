@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:08:02 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/08 17:45:27 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/12 08:11:22 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ typedef struct s_stack
 	int		size_a;
 	int		size_b;
 }		t_stack;
+
+typedef struct s_pivot
+{
+	int		partition;
+	int		num;
+	int		half;
+}		t_pivot;
 
 // Parser
 int		parser_save(char **argv, t_stack *stack);
@@ -66,7 +73,7 @@ int		sort_up_to_ten_numbers(t_stack *stack);
 int		complex_sort(t_stack *stack);
 void	partition_a_and_push_b(t_stack *stack);
 void	quicksort(int *num, int low, int high);
-void	push_small_number_pivot_to_b(t_stack *stack, int pivot);
+void	push_small_number_pivot_to_b(t_stack *stack, t_pivot pivot);
 void	sort_number_remain_a(t_stack *stack);
 void	push_biggest_numbers_to_a(t_stack *stack);
 

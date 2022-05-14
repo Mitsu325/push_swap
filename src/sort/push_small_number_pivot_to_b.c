@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 17:13:51 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/09 05:45:40 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/13 09:00:55 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,39 +48,6 @@ static int	index_of_small_num_pivot(t_list *last, int pivot)
 }
 
 /* -------------------------------------------------------------------------- **
-** FUNCTION: move_number_to_top
-** -------------------------------------------------------------------------- **
-** DESCRIPTION:
-** Move the index number to the top with the least amount of operation.
-** PARAMETERS:
-** #stack. The t_stack struct
-** #index. The index of the number that needs to be moved to the top
-** #stack_size. The stack size
-** RETURN VALUES:
-** -
-** -------------------------------------------------------------------------- */
-static void	move_number_to_top(t_stack *stack, int index, int stack_size)
-{
-	int	half_size;
-
-	half_size = (stack_size / 2) + (stack_size % 2);
-	if (index < half_size)
-	{
-		while (index != 0)
-		{
-			ra(stack);
-			index--;
-		}
-		return ;
-	}
-	while (index != stack_size)
-	{
-		rra(stack);
-		index++;
-	}
-}
-
-/* -------------------------------------------------------------------------- **
 ** FUNCTION: push_small_number_pivot_to_b
 ** -------------------------------------------------------------------------- **
 ** DESCRIPTION:
@@ -91,16 +58,22 @@ static void	move_number_to_top(t_stack *stack, int index, int stack_size)
 ** RETURN VALUES:
 ** -
 ** -------------------------------------------------------------------------- */
-void	push_small_number_pivot_to_b(t_stack *stack, int pivot)
+void	push_small_number_pivot_to_b(t_stack *stack, t_pivot pivot)
 {
-	int	index;
+	int		index;
 
-	index = index_of_small_num_pivot(stack->last_a, pivot);
+	index = index_of_small_num_pivot(stack->last_a, pivot.num);
 	while (index != -1)
 	{
 		if (index != 0)
-			move_number_to_top(stack, index, stack->size_a);
-		pb(stack);
-		index = index_of_small_num_pivot(stack->last_a, pivot);
+		{
+			if (stack->size_b > 1 && stack->last_b->next->data < pivot.half)
+				rr(stack);
+			else
+				ra(stack);
+		}
+		if (stack->last_a->next->data <= pivot.num)
+			pb(stack);
+		index = index_of_small_num_pivot(stack->last_a, pivot.num);
 	}
 }

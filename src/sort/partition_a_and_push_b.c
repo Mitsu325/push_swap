@@ -6,7 +6,7 @@
 /*   By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 16:30:55 by pmitsuko          #+#    #+#             */
-/*   Updated: 2022/05/09 07:37:12 by pmitsuko         ###   ########.fr       */
+/*   Updated: 2022/05/13 09:01:51 by pmitsuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 ** -------------------------------------------------------------------------- */
 static int	get_partition(int size)
 {
+	if (size <= 25)
+		return (1);
 	if (size <= 50)
 		return (2);
-	if (size <= 100)
+	if (size <= 150)
 		return (4);
-	if (size <= 200)
+	if (size <= 250)
 		return (6);
-	if (size <= 300)
+	if (size <= 350)
 		return (8);
-	if (size <= 400)
-		return (10);
-	return (11);
+	return (10);
 }
 
 /* -------------------------------------------------------------------------- **
@@ -103,20 +103,20 @@ static int	get_pivot(int *sorted_number, int size, int divisor)
 ** -------------------------------------------------------------------------- */
 void	partition_a_and_push_b(t_stack *stack)
 {
-	int	*sorted_number;
-	int	partition;
-	int	pivot;
+	int		*sorted_num;
+	t_pivot	pvt;
 	int	i;
 
-	sorted_number = save_numbers_in_array(stack);
-	quicksort(sorted_number, 0, stack->full_size - 1);
+	sorted_num = save_numbers_in_array(stack);
+	quicksort(sorted_num, 0, stack->full_size - 1);
 	i = 0;
 	while (stack->size_a > 5)
 	{
-		partition = get_partition(stack->size_a);
-		pivot = get_pivot(sorted_number + i, stack->size_a, partition);
-		push_small_number_pivot_to_b(stack, pivot);
-		i += (stack->size_a / partition);
+		pvt.partition = get_partition(stack->size_a);
+		pvt.num = get_pivot(sorted_num + i, stack->size_a, pvt.partition);
+		pvt.half = get_pivot(sorted_num + i, stack->size_a, pvt.partition * 2);
+		push_small_number_pivot_to_b(stack, pvt); // ! retornar a quantidade de números que foi empurrado para a pilha b
+		i += (stack->size_a / pvt.partition);
 	}
-	free(sorted_number);
+	free(sorted_num);
 }
