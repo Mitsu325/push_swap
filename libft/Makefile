@@ -6,7 +6,7 @@
 #    By: pmitsuko <pmitsuko@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 01:28:38 by pmitsuko          #+#    #+#              #
-#    Updated: 2022/05/06 06:46:00 by pmitsuko         ###   ########.fr        #
+#    Updated: 2022/05/14 10:08:41 by pmitsuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,35 +84,5 @@ fclean: clean
 		@$(RM) -r $(OBJ_DIR)
 
 re: fclean all
-
-# **************************************************************************** #
-
-## TESTS ##
-
-TEST = tests
-TEST_DIR = lst num put str
-TESTS = $(wildcard $(TEST)/*.c)
-TESTS += $(wildcard $(TEST)/lst/*.c)
-TESTS += $(wildcard $(TEST)/num/*.c)
-TESTS += $(wildcard $(TEST)/put/*.c)
-TESTS += $(wildcard $(TEST)/str/*.c)
-TESTBIN_DIR = $(foreach dir, $(TEST_DIR), $(addprefix $(TEST)/bin/, $(dir)))
-TESTBINS = $(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
-
-$(TEST)/bin/%: $(TEST)/%.c
-		@mkdir -p $(TEST)/bin/ $(TESTBIN_DIR)
-		@$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lcriterion
-
-test: CFLAGS+=-fsanitize=address
-test: tclean $(NAME) $(TESTBINS)
-		@for test in $(TESTBINS) ; do ./$$test ; done
-
-test_v: CFLAGS+=-fsanitize=address
-test_v: tclean $(NAME) $(TESTBINS)
-		@for test in $(TESTBINS) ; do ./$$test --verbose ; done
-
-tclean: fclean
-		@$(RM) $(TESTBINS)
-		@$(RM) $(TEST)/bin
 
 .PHONY: all clean fclean re test test_v tclean
